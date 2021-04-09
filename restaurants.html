@@ -1,0 +1,209 @@
+<script
+	src="https://kit.fontawesome.com/8ce5a2121c.js"
+	crossorigin="anonymous"
+></script>
+<div class="restaurants-container"></div>
+
+<script>
+	// store info of properties here.
+	const restaurants = [
+		{
+			name: "SLANTED DOOR NAPA",
+			location: ["123 Sesame Street", "Napa, California 12345"],
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta tristique eros, vel mollis dui blandit eu. Phasellus vel mi turpis. Nulla efficitur ex quam, vitae fringilla nunc ornare sed. Morbi porttitor elit vel metus viverra, at egestas tellus maximus. Morbi gravida eros non lorem euismod fringilla.",
+			imgUrl:
+				"https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
+			phone: "(123)456-7890",
+			hours: {
+				lunch: { "Mo-Su": "11-2:30" },
+				Dinner: {
+					"Mo-Sa": "5:30-10",
+					Su: "5:30-9:30",
+				},
+			},
+		},
+		{
+			name: "RICE AND BONES",
+			location: ["123 Sesame Street", "Berkeley, California 12345"],
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta tristique eros, vel mollis dui blandit eu. Phasellus vel mi turpis. Nulla efficitur ex quam, vitae fringilla nunc ornare sed. Morbi porttitor elit vel metus viverra, at egestas tellus maximus. Morbi gravida eros non lorem euismod fringilla.",
+			imgUrl:
+				"https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
+			phone: "(123)456-7890",
+			hours: {
+				lunch: { "Mo-Su": "11-2:30" },
+				Dinner: {
+					"Mo-Sa": "5:30-10",
+					Su: "5:30-9:30",
+				},
+			},
+		},
+		{
+			name: "LARKSPUR FISH",
+			location: ["123 Sesame Street", "Larkspur, California 12345"],
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta tristique eros, vel mollis dui blandit eu. Phasellus vel mi turpis. Nulla efficitur ex quam, vitae fringilla nunc ornare sed. Morbi porttitor elit vel metus viverra, at egestas tellus maximus. Morbi gravida eros non lorem euismod fringilla.",
+			imgUrl:
+				"https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
+			phone: "(123)456-7890",
+			hours: {
+				lunch: { "Mo-Su": "11-2:30" },
+				Dinner: {
+					"Mo-Sa": "5:30-10",
+					Su: "5:30-9:30",
+				},
+			},
+		},
+		{
+			name: "HARDWATER",
+			location: ["123 Sesame Street", "San Francisco, California 12345"],
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta tristique eros, vel mollis dui blandit eu. Phasellus vel mi turpis. Nulla efficitur ex quam, vitae fringilla nunc ornare sed. Morbi porttitor elit vel metus viverra, at egestas tellus maximus. Morbi gravida eros non lorem euismod fringilla.",
+			imgUrl:
+				"https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png",
+			phone: "(123)456-7890",
+			hours: {
+				lunch: { "Mo-Su": "11-2:30" },
+				Dinner: {
+					"Mo-Sa": "5:30-10",
+					Su: "5:30-9:30",
+				},
+			},
+		},
+	];
+	// console.log(restaurants);
+	const restaurantsContainer = document.querySelector(".restaurants-container");
+
+	restaurantsContainer.innerHTML = restaurants
+		.map((ele) => {
+			const hours = Object.keys(ele.hours)
+				.map((time) => {
+					const day_service_time = Object.keys(ele.hours[time])
+						.map((sub_ele) => {
+							return sub_ele + "  " + ele.hours[time][sub_ele];
+						})
+						.join("<br />");
+
+					return time + "  " + day_service_time;
+				})
+				.join("<br />");
+			return `
+			<div class="restaurant-item" id="${ele.name
+				.toLowerCase()
+				.split(" ")
+				.join("_")}-card">
+        
+        <div class="restaurant-card">
+          <div class="restaurant-img_container">
+            <img class="restaurant-img"
+              src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+              alt="${ele.name.toLowerCase().split(" ").join("_")}_card_img"/>
+          </div>
+          <div class="restaurant-info">
+            <h2 class="restaurant_name">${ele.name}</h2>
+            <p class="restaurant_description">${ele.description}</p>
+            <div class="restaurant-info_hours">${hours}</div>
+            <div class="restaurant-info_subcard">
+              <p class="restaurant-subcard_location">
+                Location
+                <br />
+                ${ele.location.join("<br />")}
+              </p>
+              <p class="restaurant-subcard_phone">${ele.phone}</p>
+            </div>
+          </div>
+        </div>
+        <div class="restaurant-item_footer">
+          <div class="restaurant_nav">
+              <a href="#"  class="restanrant_button">
+                <i class="far fa-calendar-alt"></i>
+                &nbsp;&nbsp;
+                Date
+              </a>
+              <a href="#"  class="restanrant_button">
+                <i class="fas fa-user-friends"></i>
+                &nbsp;&nbsp;
+                Guests
+              </a>
+              <a href="#" class="restanrant_button">
+                <i class="fas fa-clock"></i>
+                &nbsp;&nbsp;
+                Time
+              </a>
+          </div>
+          <a href="#" >Open Table Widget</a>
+        </div>
+      </div>
+		`;
+		})
+		.join(" ");
+</script>
+<style>
+	:root {
+		--darkest-gray: #252b31;
+		--dark-gray: #5e6668;
+		--light-gray: #c1c8c7;
+		--lightest-gray: #f6fafb;
+		--orange: #d49c6b;
+	}
+	a {
+		text-decoration: none;
+	}
+	.restaurant-item {
+		border: 1px solid var(--darkest-gray);
+		margin-bottom: 50px;
+	}
+	.restaurant-card {
+		border: 1px solid var(--dark-gray);
+		display: flex;
+		justify-content: space-between;
+	}
+	.restaurant-info {
+		border: 1px solid var(--light-gray);
+	}
+	.restaurant-img_container {
+		display: flex;
+		align-items: center;
+	}
+	.restaurant-img {
+		width: 100%;
+		margin: 0;
+		top: 50%;
+		bottom: 50%;
+	}
+	.restaurant-item_footer {
+		display: flex;
+		margin: 0 auto;
+		justify-content: center;
+	}
+	.restanrant_button {
+		margin-right: 50px;
+		display: block;
+	}
+	.restaurant_nav {
+		margin-right: 50px;
+		width: fit-content;
+		display: flex;
+	}
+</style>
+<!-- <div class="restaurant-item">
+	<h2 class="restaurant_name">${ele.name}</h2>
+	<p class="restaurant_description">${ele.description}</p>
+	<div class="restaurant-card">
+		<img class="restaurant-img"
+		src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+		alt="${ele.name .toLowerCase() .split(" ") .join("_")}_card_img"/>
+		<div class="restaurant-info">
+			<div class="restaurant-info_hours">${hours}</div>
+			<div class="restaurant-info_subcard">
+				<p class="restaurant-subcard_location">
+					Location
+					<br />
+					${ele.location.join("<br />")}
+				</p>
+				<p class="restaurant-subcard_phone">${ele.phone}</p>
+			</div>
+		</div>
+	</div>
+</div> -->
