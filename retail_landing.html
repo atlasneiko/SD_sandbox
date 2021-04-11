@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			:root {
+				--darkest-gray: #252b31;
+				--dark-gray: #5e6668;
+				--light-gray: #c1c8c7;
+				--lightest-gray: #f6fafb;
+				--orange: #d49c6b;
+			}
+			.retail-nav_ul {
+				list-style-type: none !important;
+				padding-inline-start: 0;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin: 0 auto;
+			}
+			.retail-nav_li a {
+				text-decoration: none;
+				color: var(--darkest-gray);
+				padding: 10px !important;
+				transition: 0.2s ease-out all;
+				border-bottom: none !important;
+			}
+			.retail-nav_li a:hover {
+				border: 1px solid var(--light-gray);
+				box-shadow: 2px 2px 5px var(--darkest-gray);
+			}
+			.retail-landing_section {
+			}
+			.retail-row_title {
+				color: var(--darkest-gray);
+			}
+			.retail-row_description {
+				color: var(--darkest-gray);
+			}
+			.retail-row_ul {
+				list-style-type: none !important;
+				padding-inline-start: 0;
+				display: flex;
+				flex-direction: row;
+			}
+			.retail-row_li a {
+				text-decoration: none !important;
+				border-bottom: none !important;
+				color: var(--darkest-gray);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.retail-row_li img {
+				width: 250px;
+			}
+		</style>
+		<nav classs="retail-nav">
+			<ul class="retail-nav_ul">
+				<li class="retail-nav_li">
+					<a href="#">
+						SIGNATURE DISHES
+					</a>
+				</li>
+				<li class="retail-nav_li">
+					<a href="#">
+						MEAL KIT
+					</a>
+				</li>
+				<li class="retail-nav_li">
+					<a href="#">
+						SPICE AND SAUCES
+					</a>
+				</li>
+				<li class="retail-nav_li">
+					<a href="#">
+						FOR THE HOME
+					</a>
+				</li>
+				<li class="retail-nav_li">
+					<a href="#">
+						GIFTS
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<main class="retail-landing_main">
+			<section class="retail-landing_section">
+				<h1 class="retail-section_title">SIGNATURE DISHES</h1>
+				<p class="retail-section_description">
+					Our best loved dishes, conveniently delivered to your home, ready to
+					eat in 10 minutes.
+				</p>
+				<div class="retail-landing_row" id="special-dishes">
+					<p class="retail-row_tag">Street Food + Small Plates</p>
+					<ul class="retail-row_ul">
+						<li class="retail-row_li">
+							<a href="#">
+								<img
+									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+								/>
+								<h3 class="retail-row_li-name">A la Carte Item</h3>
+								<p class="retail-row_li-price">$20</p>
+							</a>
+						</li>
+						<li class="retail-row_li">
+							<a href="#">
+								<img
+									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+								/>
+								<h3 class="retail-row_li-name">A la Carte Item</h3>
+								<p class="retail-row_li-price">$20</p>
+							</a>
+						</li>
+						<li class="retail-row_li">
+							<a href="#">
+								<img
+									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+								/>
+								<h3 class="retail-row_li-name">A la Carte Item</h3>
+								<p class="retail-row_li-price">$20</p>
+							</a>
+						</li>
+						<li class="retail-row_li">
+							<a href="#">
+								<img
+									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+								/>
+								<h3 class="retail-row_li-name">A la Carte Item</h3>
+								<p class="retail-row_li-price">$20</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="retail-landing_row" id="meal-kits"></div>
+				<div class="retail-landing_row" id="spice-and-sauces"></div>
+				<div class="retail-landing_row" id="for-the-home"></div>
+				<div class="retail-landing_row" id="gifts"></div>
+			</section>
+		</main>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			// fetch data for signature dishes
+			$.getJSON(
+				"https://spreadsheets.google.com/feeds/list/1Kg0YFFGGGOiD0boQibqme3mLTYVmsp3p4Pc0J4V59cU/1/public/basic?alt=json",
+				(res) => {
+					const entry = res.feed.entry;
+					// console.log(entry);
+					entry.forEach((ele, idx) => {
+						const item = {
+							content: ele.content.$t.split(","),
+							name: ele.title.$t,
+						};
+						console.log(item);
+						if (idx === 3) {
+							console.log("street food");
+						} else if (idx === 7) {
+							console.log("protein");
+						} else if (idx === 11) {
+							console.log("veg");
+						}
+					});
+				}
+			);
+			// fetch data for meal kits
+			$.getJSON(
+				"https://spreadsheets.google.com/feeds/list/1Kg0YFFGGGOiD0boQibqme3mLTYVmsp3p4Pc0J4V59cU/2/public/basic?alt=json",
+				(res) => {
+					const entry = res.feed.entry;
+					// console.log(entry);
+					entry.forEach((ele) => {
+						const item = {
+							content: ele.content.$t.split(","),
+							name: ele.title.$t,
+						};
+						console.log(item);
+					});
+				}
+			);
+			// fetch data for spice and sauces
+			$.getJSON(
+				"https://spreadsheets.google.com/feeds/list/1Kg0YFFGGGOiD0boQibqme3mLTYVmsp3p4Pc0J4V59cU/3/public/basic?alt=json",
+				(res) => {
+					const entry = res.feed.entry;
+					// console.log(entry);
+					entry.forEach((ele) => {
+						const item = {
+							content: ele.content.$t.split(","),
+							name: ele.title.$t,
+						};
+						console.log(item);
+					});
+				}
+			);
+			// fetch data for for the home
+			$.getJSON(
+				"https://spreadsheets.google.com/feeds/list/1Kg0YFFGGGOiD0boQibqme3mLTYVmsp3p4Pc0J4V59cU/4/public/basic?alt=json",
+				(res) => {
+					const entry = res.feed.entry;
+					// console.log(entry);
+					entry.forEach((ele) => {
+						const item = {
+							content: ele.content.$t.split(","),
+							name: ele.title.$t,
+						};
+						console.log(item);
+					});
+				}
+			);
+			// fetch data for gifts
+			$.getJSON(
+				"https://spreadsheets.google.com/feeds/list/1Kg0YFFGGGOiD0boQibqme3mLTYVmsp3p4Pc0J4V59cU/5/public/basic?alt=json",
+				(res) => {
+					const entry = res.feed.entry;
+					// console.log(entry);
+					entry.forEach((ele) => {
+						const item = {
+							content: ele.content.$t.split(","),
+							name: ele.title.$t,
+						};
+						console.log(item);
+					});
+				}
+			);
+		</script>
+	</body>
+</html>

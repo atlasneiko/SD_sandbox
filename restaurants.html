@@ -149,6 +149,7 @@
 	}
 	a {
 		text-decoration: none;
+		border-bottom: none !important;
 	}
 	.restaurant-item {
 		border: 1px solid var(--darkest-gray);
@@ -187,23 +188,3 @@
 		display: flex;
 	}
 </style>
-<!-- <div class="restaurant-item">
-	<h2 class="restaurant_name">${ele.name}</h2>
-	<p class="restaurant_description">${ele.description}</p>
-	<div class="restaurant-card">
-		<img class="restaurant-img"
-		src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
-		alt="${ele.name .toLowerCase() .split(" ") .join("_")}_card_img"/>
-		<div class="restaurant-info">
-			<div class="restaurant-info_hours">${hours}</div>
-			<div class="restaurant-info_subcard">
-				<p class="restaurant-subcard_location">
-					Location
-					<br />
-					${ele.location.join("<br />")}
-				</p>
-				<p class="restaurant-subcard_phone">${ele.phone}</p>
-			</div>
-		</div>
-	</div>
-</div> -->

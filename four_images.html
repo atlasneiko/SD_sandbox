@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			:root {
+				--darkest-gray: #252b31;
+				--dark-gray: #5e6668;
+				--light-gray: #c1c8c7;
+				--lightest-gray: #f6fafb;
+				--orange: #d49c6b;
+			}
+			.four-imgs_container {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.four-imgs_item {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				width: 40vw;
+				height: 22vw;
+				overflow: hidden !important;
+				text-align: center;
+				background-color: var(--darkest-gray);
+				margin: 10px;
+				max-width: 45%;
+				text-decoration: none;
+				transition: 0.2s ease-out all;
+			}
+			.four-imgs_item:hover {
+				box-shadow: 2px 2px 5px var(--darkest-gray);
+			}
+
+			.four-imgs_img {
+				width: 120%;
+				height: auto;
+				position: absolute;
+				z-index: 0;
+				opacity: 0.4;
+				transition: 0.2s ease-out all;
+				max-width: none;
+			}
+			.four-imgs_img:hover {
+				opacity: 0.2;
+				width: 140% !important;
+			}
+			.four-imgs_img:hover + .four-imgs_text {
+				font-size: 125%;
+				color: var(--orange) !important;
+			}
+			.four-imgs_text {
+				z-index: 1;
+				font-size: 120%;
+				color: var(--lightest-gray);
+				transition: 0.2s ease-out all;
+			}
+			.four-imgs_p {
+				color: var(--light-gray);
+			}
+		</style>
+		<div class="four-imgs_container">
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="four-imgs_item"
+			>
+				<img
+					src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+					class="four-imgs_img"
+					alt="four-imgs_img1"
+				/>
+				<h2 class="four-imgs_text">
+					Slanted Door Family Restaurants
+				</h2>
+			</a>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="four-imgs_item"
+			>
+				<img
+					src="https://cdn.shopify.com/s/files/1/0557/4449/5788/products/Chicken_pho_1024x1024@2x.jpg?v=1617048382"
+					class="four-imgs_img"
+					alt="four-imgs_img1"
+				/>
+				<h2 class="four-imgs_text">
+					Our Food, Conventiently Delivered to Your Doorstep
+				</h2>
+				<p class="four-imgs_p">SF Only</p>
+			</a>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="four-imgs_item"
+			>
+				<img
+					src="https://i.pinimg.com/originals/1a/47/19/1a4719a20a1873335319fdb86c66f597.jpg"
+					class="four-imgs_img"
+					alt="four-imgs_img1"
+				/>
+				<h2 class="four-imgs_text">
+					Thoughtfully Curated Wares for Your Tabletop and Kitchen
+				</h2>
+			</a>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="four-imgs_item"
+			>
+				<img
+					src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+					class="four-imgs_img"
+					alt="four-imgs_img1"
+				/>
+				<h2 class="four-imgs_text">
+					Get to Know Our Family
+				</h2>
+			</a>
+		</div>
+	</body>
+</html>
