@@ -1,0 +1,101 @@
+<ul class="site-nav list--inline" id="SiteNav">
+	<li>
+		<a href="/pages/restaurants" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Slanted Door Restaurants</span>
+		</a>
+	</li>
+
+	<li class="site-nav--active">
+		<a
+			href="/pages/food-delivery"
+			class="site-nav__link site-nav__link--main site-nav__link"
+			aria-current="page"
+		>
+			<span class="site-nav__label">Food Delivery</span>
+		</a>
+	</li>
+
+	<li>
+		<a href="/pages/shop" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Shop</span>
+		</a>
+	</li>
+
+	<li>
+		<a href="/pages/about-us" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Our Family</span>
+		</a>
+	</li>
+
+	<li>
+		<a href="/pages/careers" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Careers</span>
+		</a>
+	</li>
+</ul>
+
+<!--  -->
+<style>
+	:root {
+		--darkest-gray: #252b31;
+		--dark-gray: #5e6668;
+		--light-gray: #c1c8c7;
+		--lightest-gray: #f6fafb;
+		--orange: #d49c6b;
+	}
+	.retail-nav_ul {
+		list-style-type: none !important;
+		padding-inline-start: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		margin: 0 auto;
+		height: 50px;
+	}
+	.retail-nav_li a {
+		text-decoration: none;
+		color: var(--darkest-gray);
+		padding: 10px !important;
+		transition: 0.2s ease-out all;
+		border-bottom: none !important;
+	}
+	.retail-nav_li a:hover {
+		border: 1px solid var(--light-gray) !important;
+		box-shadow: 2px 2px 5px var(--darkest-gray);
+	}
+	.retail-nav_li a:hover span {
+		border-bottom: 0;
+	}
+</style>
+<ul class="site-nav list--inline retail-nav_ul">
+	<li class="retail-nav_li">
+		<a href="/pages/restaurants" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Slanted Door Restaurants</span>
+		</a>
+	</li>
+
+	<li class="retail-nav_li">
+		<a href="/pages/food-delivery" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Food Delivery</span>
+		</a>
+	</li>
+
+	<li class="retail-nav_li">
+		<a href="/pages/shop" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Shop</span>
+		</a>
+	</li>
+
+	<li class="retail-nav_li">
+		<a href="/pages/about-us" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Our Family</span>
+		</a>
+	</li>
+
+	<li class="retail-nav_li">
+		<a href="/pages/careers" class="site-nav__link site-nav__link--main">
+			<span class="site-nav__label">Careers</span>
+		</a>
+	</li>
+</ul>

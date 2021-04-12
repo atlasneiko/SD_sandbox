@@ -19,6 +19,7 @@
 				list-style-type: none !important;
 				padding-inline-start: 0;
 				display: flex;
+				flex-wrap: wrap;
 				justify-content: space-around;
 				align-items: center;
 				margin: 0 auto;
@@ -34,7 +35,8 @@
 				border: 1px solid var(--light-gray);
 				box-shadow: 2px 2px 5px var(--darkest-gray);
 			}
-			.retail-landing_section {
+			.retail-landing_row {
+				margin-bottom: 150px;
 			}
 			.retail-row_title {
 				color: var(--darkest-gray);
@@ -46,7 +48,9 @@
 				list-style-type: none !important;
 				padding-inline-start: 0;
 				display: flex;
+				justify-content: space-around;
 				flex-direction: row;
+				margin-left: 0 !important;
 			}
 			.retail-row_li a {
 				text-decoration: none !important;
@@ -56,8 +60,39 @@
 				flex-direction: column;
 				align-items: center;
 			}
-			.retail-row_li img {
-				width: 250px;
+			.retail-row_li {
+				transition: all 0.1s ease-out;
+			}
+			.retail-row_li:hover {
+				box-shadow: 2px 2px 5px var(--darkest-gray);
+			}
+			.retail-row_li:hover + .retail-li_img {
+				width: 120%;
+			}
+			.retail-li_img-container {
+				width: 100%;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.retail-li_img {
+				width: 100%;
+				height: auto;
+				transition: 0.2s all ease-out;
+				max-width: none;
+			}
+			#SiteNav {
+				top: 0;
+			}
+			.section-header {
+				margin-top: 50px;
+			}
+			.retail-section_title {
+				text-align: center;
+			}
+			.retail-section_description {
+				text-align: center;
 			}
 		</style>
 		<nav classs="retail-nav">
@@ -96,55 +131,142 @@
 					Our best loved dishes, conveniently delivered to your home, ready to
 					eat in 10 minutes.
 				</p>
-				<div class="retail-landing_row" id="special-dishes">
+				<div class="retail-landing_row">
 					<p class="retail-row_tag">Street Food + Small Plates</p>
-					<ul class="retail-row_ul">
-						<li class="retail-row_li">
-							<a href="#">
-								<img
-									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
-								/>
-								<h3 class="retail-row_li-name">A la Carte Item</h3>
-								<p class="retail-row_li-price">$20</p>
-							</a>
-						</li>
-						<li class="retail-row_li">
-							<a href="#">
-								<img
-									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
-								/>
-								<h3 class="retail-row_li-name">A la Carte Item</h3>
-								<p class="retail-row_li-price">$20</p>
-							</a>
-						</li>
-						<li class="retail-row_li">
-							<a href="#">
-								<img
-									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
-								/>
-								<h3 class="retail-row_li-name">A la Carte Item</h3>
-								<p class="retail-row_li-price">$20</p>
-							</a>
-						</li>
-						<li class="retail-row_li">
-							<a href="#">
-								<img
-									src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
-								/>
-								<h3 class="retail-row_li-name">A la Carte Item</h3>
-								<p class="retail-row_li-price">$20</p>
-							</a>
-						</li>
-					</ul>
+					<ul class="retail-row_ul" id="sd-streetfood_ul"></ul>
+					<p class="retail-row_tag">Substantial Plates + Proteins</p>
+					<ul class="retail-row_ul" id="sd-protein_ul"></ul>
+					<p class="retail-row_tag">Vegetables</p>
+					<ul class="retail-row_ul" id="sd-vegetables_ul"></ul>
 				</div>
-				<div class="retail-landing_row" id="meal-kits"></div>
-				<div class="retail-landing_row" id="spice-and-sauces"></div>
-				<div class="retail-landing_row" id="for-the-home"></div>
-				<div class="retail-landing_row" id="gifts"></div>
+				<div class="retail-landing_row">
+					<h1 class="retail-section_title">MEAL KITS</h1>
+					<p class="retail-section_description">
+						Our favorite classic meal pairings, bundled to serve 4.
+					</p>
+					<ul class="retail-row_ul" id="meal-kits_ul"></ul>
+				</div>
+				<div class="retail-landing_row">
+					<h1 class="retail-section_title">SPICES AND SAUCES</h1>
+					<p class="retail-section_description">
+						Delicious accompaniments to elevate your pantry.
+					</p>
+					<ul class="retail-row_ul" id="spaices-and-sauces_ul"></ul>
+				</div>
+				<div class="retail-landing_row">
+					<h1 class="retail-section_title">FOR THE HOME</h1>
+					<p class="retail-section_description">
+						Thoughtfully curated items that bring beauty to the act every day
+						cooking
+					</p>
+					<ul class="retail-row_ul" id="for-the-home_ul"></ul>
+				</div>
+				<div class="retail-landing_row">
+					<h1 class="retail-section_title">GIFTS</h1>
+					<p class="retail-section_description">
+						give surprise and delight to show you care.
+					</p>
+					<ul class="retail-row_ul" id="gifts_ul"></ul>
+				</div>
 			</section>
 		</main>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
+			// fetch functions
+			const fetchProducts = (collection_id, component_id) => {
+				const component = document.querySelector(component_id);
+				const url =
+					"/admin/api/2021-04/products.json?collection_id=" + collection_id;
+				$.getJSON(url, (res) => {
+					let { products } = res;
+					// console.log(products);
+					component.innerHTML = products
+						.map((product) => {
+							// console.log(product);
+							const imgUrl = product.image.src;
+							const title = product.title;
+							const handle = product.handle;
+							let price;
+							if (product.variants.length === 1) {
+								price = "$ " + product.variants[0].price;
+							} else {
+								const prices = [];
+								product.variants.forEach((ele) => {
+									prices.push(parseInt(ele.price));
+								});
+								price = "$ " + Math.min(...prices);
+							}
+							return `
+								<li class="retail-row_li">
+									<a href="https://slanted-door.myshopify.com/products/${handle}">
+										<div class="retail-li_img-container">
+										<img
+											class="retail-li_img"
+											src="${imgUrl}"
+										/>
+										</div>
+									<h4 class="retail-row_li-name">${title}</h4>
+									<p class="retail-row_li-price">${price}</p>
+									</a>
+								</li>
+							`;
+						})
+						.join(" ");
+				});
+			};
+			// fetch signature dish - street food
+			fetchProducts("264021246124", "#sd-streetfood_ul");
+			// fetch signature dish - protein
+			fetchProducts("264021278892", "#sd-protein_ul");
+			// fetch signature dish - vegetables
+			fetchProducts("264021344428", "#sd-vegetables_ul");
+			// fetch meal kits
+			fetchProducts("264021442732", "#meal-kits_ul");
+			// fetch spices and sauces
+			fetchProducts("264025538732", "#spaices-and-sauces_ul");
+			// fetch for the home
+			fetchProducts("264021770412", "#for-the-home_ul");
+			// fetch gifts
+			fetchProducts("264021508268", "#gifts_ul");
+		</script>
+		<!-- <li class="retail-row_li">
+			<a href="#">
+				<img
+					src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+				/>
+				<h3 class="retail-row_li-name">A la Carte Item</h3>
+				<p class="retail-row_li-price">$20</p>
+			</a>
+		</li>
+		<li class="retail-row_li">
+			<a href="#">
+				<img
+					src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+				/>
+				<h3 class="retail-row_li-name">A la Carte Item</h3>
+				<p class="retail-row_li-price">$20</p>
+			</a>
+		</li>
+		<li class="retail-row_li">
+			<a href="#">
+				<img
+					src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+				/>
+				<h3 class="retail-row_li-name">A la Carte Item</h3>
+				<p class="retail-row_li-price">$20</p>
+			</a>
+		</li>
+		<li class="retail-row_li">
+			<a href="#">
+				<img
+					src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
+				/>
+				<h3 class="retail-row_li-name">A la Carte Item</h3>
+				<p class="retail-row_li-price">$20</p>
+			</a>
+		</li> -->
+
+		<!-- <script>
 			// fetch data for signature dishes
 			$.getJSON(
 				"https://spreadsheets.google.com/feeds/list/1Kg0YFFGGGOiD0boQibqme3mLTYVmsp3p4Pc0J4V59cU/1/public/basic?alt=json",
@@ -227,6 +349,6 @@
 					});
 				}
 			);
-		</script>
+		</script> -->
 	</body>
 </html>
