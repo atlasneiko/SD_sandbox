@@ -15,18 +15,25 @@
 				--lightest-gray: #f6fafb;
 				--orange: #d49c6b;
 			}
+			.img-gallery_container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 			.img-gallery {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				flex-wrap: nowrap;
+				max-width: none;
+				width: 100vw;
 			}
 			.img-gallery_item {
-				width: 20vw;
-				height: 13vw;
+				width: 24.3vw;
+				height: 18vw;
 				overflow: hidden !important;
-				border: 1px siolid var(--orange);
-				margin: 10px;
+				/* border: 1px siolid var(--orange); */
+				margin: 1px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -49,36 +56,38 @@
 					flex-direction: column;
 				}
 				.img-gallery_item {
-					width: 70vw;
-					height: 42vw;
+					width: 100vw;
+					height: 72vw;
 				}
 			}
 		</style>
-		<div class="img-gallery">
-			<a href="#" class="img-gallery_item">
-				<img
-					alt="slanted door cookbook"
-					src="https://images-na.ssl-images-amazon.com/images/I/A1FJwLEI3eL.jpg"
-				/>
-			</a>
-			<a href="#" class="img-gallery_item">
-				<img
-					alt="chili jam"
-					src="https://www.seriouseats.com/2018/03/20180322-chili-crisp-vicky-wasik-22-1500x1125.jpg"
-				/>
-			</a>
-			<a href="#" class="img-gallery_item">
-				<img
-					alt="Jered's pottery"
-					src="https://cdn.shopify.com/s/files/1/1497/8044/products/DSC04741_compressed.jpg?v=1498009381"
-				/>
-			</a>
-			<a href="#" class="img-gallery_item">
-				<img
-					alt="claypot chicken"
-					src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/052DpnZw_360x.jpg?v=1618235360"
-				/>
-			</a>
+		<div class="img-gallery_container">
+			<div class="img-gallery">
+				<a href="#" class="img-gallery_item">
+					<img
+						alt="slanted door cookbook"
+						src="https://images-na.ssl-images-amazon.com/images/I/A1FJwLEI3eL.jpg"
+					/>
+				</a>
+				<a href="#" class="img-gallery_item">
+					<img
+						alt="chili jam"
+						src="https://www.seriouseats.com/2018/03/20180322-chili-crisp-vicky-wasik-22-1500x1125.jpg"
+					/>
+				</a>
+				<a href="#" class="img-gallery_item">
+					<img
+						alt="Jered's pottery"
+						src="https://cdn.shopify.com/s/files/1/1497/8044/products/DSC04741_compressed.jpg?v=1498009381"
+					/>
+				</a>
+				<a href="#" class="img-gallery_item">
+					<img
+						alt="claypot chicken"
+						src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/052DpnZw_360x.jpg?v=1618235360"
+					/>
+				</a>
+			</div>
 		</div>
 	</body>
 </html>
