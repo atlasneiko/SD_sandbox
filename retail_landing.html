@@ -51,6 +51,7 @@
 				justify-content: space-around;
 				flex-direction: row;
 				margin-left: 0 !important;
+				height: 400px;
 			}
 			.retail-row_li a {
 				text-decoration: none !important;
@@ -62,11 +63,12 @@
 			}
 			.retail-row_li {
 				transition: all 0.1s ease-out;
+				margin: 0 5px;
 			}
 			.retail-row_li:hover {
 				box-shadow: 2px 2px 5px var(--darkest-gray);
 			}
-			.retail-row_li:hover + .retail-li_img {
+			.retail-row_li:hover .retail-li_img {
 				width: 120%;
 			}
 			.retail-li_img-container {
@@ -76,11 +78,13 @@
 				justify-content: center;
 				align-items: center;
 			}
+
 			.retail-li_img {
 				width: 100%;
 				height: auto;
 				transition: 0.2s all ease-out;
 				max-width: none;
+				background: var(--darkest-gray);
 			}
 			#SiteNav {
 				top: 0;
@@ -93,6 +97,9 @@
 			}
 			.retail-section_description {
 				text-align: center;
+			}
+			.newsletter-section {
+				padding-top: 0;
 			}
 		</style>
 		<nav classs="retail-nav">
@@ -170,6 +177,58 @@
 				</div>
 			</section>
 		</main>
+		<!-- news letter component -->
+		<div class="newsletter-section index-section--newsletter-background">
+			<div class="page-width">
+				<div class="section-header text-center">
+					<div
+						class="rte"
+						data-live-text-setting="section.1618093114f9e4afef.subheading"
+					>
+						<p>
+							Sign up for email updates on our latest projects, travel vlogs
+							with Charles, and upcoming events
+						</p>
+					</div>
+				</div>
+				<form
+					method="post"
+					action="/contact?oseid=pmhzZZ7q2mdcromc6YG8xK7g#Contact_1618093114f9e4afef"
+					id="Contact_1618093114f9e4afef"
+					accept-charset="UTF-8"
+					class="contact-form form-single-field"
+					novalidate="novalidate"
+					data-editor-form-attribute=""
+				>
+					<input type="hidden" name="form_type" value="customer" /><input
+						type="hidden"
+						name="utf8"
+						value="✓"
+					/>
+					<input type="hidden" name="contact[tags]" value="newsletter" />
+					<div class="input-group">
+						<input
+							type="email"
+							name="contact[email]"
+							id="Contact_1618093114f9e4afef-email"
+							class="input-group__field"
+							value=""
+							placeholder="Email address"
+							aria-label="Email address"
+							aria-required="true"
+							autocorrect="off"
+							autocapitalize="off"
+						/>
+						<span class="input-group__btn">
+							<button type="submit" class="btn" name="commit">
+								<span>Subscribe</span>
+							</button>
+						</span>
+					</div>
+					<input type="hidden" name="oseid" value="pmhzZZ7q2mdcromc6YG8xK7g" />
+				</form>
+			</div>
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			// fetch functions
