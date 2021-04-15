@@ -1,39 +1,3 @@
-<ul class="site-nav list--inline" id="SiteNav">
-	<li>
-		<a href="/pages/restaurants" class="site-nav__link site-nav__link--main">
-			<span class="site-nav__label">Slanted Door Restaurants</span>
-		</a>
-	</li>
-
-	<li class="site-nav--active">
-		<a
-			href="/pages/food-delivery"
-			class="site-nav__link site-nav__link--main site-nav__link"
-			aria-current="page"
-		>
-			<span class="site-nav__label">Food Delivery</span>
-		</a>
-	</li>
-
-	<li>
-		<a href="/pages/shop" class="site-nav__link site-nav__link--main">
-			<span class="site-nav__label">Shop</span>
-		</a>
-	</li>
-
-	<li>
-		<a href="/pages/about-us" class="site-nav__link site-nav__link--main">
-			<span class="site-nav__label">Our Family</span>
-		</a>
-	</li>
-
-	<li>
-		<a href="/pages/careers" class="site-nav__link site-nav__link--main">
-			<span class="site-nav__label">Careers</span>
-		</a>
-	</li>
-</ul>
-
 <!--  -->
 <style>
 	:root {
@@ -52,14 +16,20 @@
 		align-items: center;
 		margin: 0 auto;
 		height: 50px;
+		position: relative;
+		background-color: var(--dark-gray);
+		padding-bottom: 77px;
 	}
 	.retail-nav_li a {
 		text-decoration: none;
-		color: var(--darkest-gray);
+		color: white;
 		padding: 10px !important;
 		transition: 0.2s ease-out all;
 	}
-
+	#shopify-section-header {
+		position: fixed;
+		z-index: 90;
+	}
 </style>
 <ul class="site-nav list--inline retail-nav_ul">
 	<li class="retail-nav_li">

@@ -1,0 +1,208 @@
+<style>
+	:root {
+		--darkest-gray: #252b31;
+		--dark-gray: #5e6668;
+		--light-gray: #c1c8c7;
+		--lightest-gray: #f6fafb;
+		--orange: #d49c6b;
+	}
+	#four-imgs-quay {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.four-img-row {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.four-img-img-container {
+		height: 50vw;
+		width: 50vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: none;
+	}
+	.four-img-img-container .img-tall {
+		width: 100%;
+		height: auto;
+		max-width: none;
+	}
+	.four-img-img-container .img-wide {
+		height: 100%;
+		width: auto;
+		max-width: none;
+	}
+
+	.four-img-text-container {
+		height: 50vw;
+		width: 50vw;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: var(--darkest-gray);
+		max-width: none;
+	}
+	.four-imgs_text {
+		font-weight: 700;
+		font-size: 150%;
+	}
+	.read-more_btn {
+		text-decoration: none;
+		padding: 5px 20px;
+		border: 2px solid var(--darkest-gray);
+		font-size: 80%;
+		color: var(--darkest-gray);
+		transition: 0.15s linear all;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 30px;
+	}
+	.read-more_btn h2 {
+		font-weight: 700;
+		margin-bottom: 0;
+	}
+	.read-more_btn:hover {
+		color: white !important;
+		background-color: var(--darkest-gray);
+	}
+</style>
+<div id="four-imgs-quay">
+	<div class="four-img-row">
+		<div class="four-img-img-container">
+			<img
+				src="https://images.squarespace-cdn.com/content/v1/5bb14e8ac2ff613f1686b889/1584386698177-K9ADW0YW6PNG8KGHMV3G/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/fullsizeoutput_f1c9.jpeg?format=2500w"
+				class="img-wide"
+				alt="four-imgs_img1"
+			/>
+		</div>
+		<div class="four-img-text-container">
+			<h2 class="four-imgs_text">
+				Slanted Door Family
+			</h2>
+			<h2 class="four-imgs_text">
+				Restaurants
+			</h2>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="read-more_btn"
+				><h2>READ MORE</h2></a
+			>
+		</div>
+	</div>
+	<div class="four-img-row">
+		<div class="four-img-text-container">
+			<h2 class="four-imgs_text">
+				Conventient Delivery
+			</h2>
+			<h2 class="four-imgs_text">to Your Doorstep</h2>
+			<h2 class="four-imgs_text">
+				(SF ONLY)
+			</h2>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="read-more_btn"
+				><h2>READ MORE</h2></a
+			>
+		</div>
+		<div class="four-img-img-container">
+			<img
+				src="https://cdn.shopify.com/s/files/1/0557/4449/5788/products/Chicken_pho_1024x1024@2x.jpg?v=1617048382"
+				class="img-tall"
+				alt="four-imgs_img1"
+			/>
+		</div>
+	</div>
+	<div class="four-img-row">
+		<div class="four-img-img-container">
+			<img
+				src="https://i.pinimg.com/originals/1a/47/19/1a4719a20a1873335319fdb86c66f597.jpg"
+				class="img-wide"
+				alt="four-imgs_img1"
+			/>
+		</div>
+		<div class="four-img-text-container">
+			<h2 class="four-imgs_text">Thoughtfully Curated Wares</h2>
+			<h2 class="four-imgs_text">
+				for Your Tabletop and Kitchen
+			</h2>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="read-more_btn"
+				><h2>READ MORE</h2></a
+			>
+		</div>
+	</div>
+	<div class="four-img-row">
+		<div class="four-img-text-container">
+			<h2 class="four-imgs_text">
+				Get to Know Our Family
+			</h2>
+			<a
+				href="https://slanted-door.myshopify.com/pages/restaurants"
+				class="read-more_btn"
+				><h2>READ MORE</h2></a
+			>
+		</div>
+		<div class="four-img-img-container">
+			<img
+				src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/j19w6ULw.jpg"
+				class="img-tall"
+				alt="four-imgs_img1"
+			/>
+		</div>
+	</div>
+</div>
+
+<!-- <style>
+	div {
+		height: 300px;
+		border: 1px solid black;
+	}
+	body {
+		overflow: hidden;
+	}
+</style>
+<h1 id="counter"></h1>
+<div id="div-1"></div>
+<div id="div-2"></div>
+<div id="div-3"></div>
+<div id="div-4"></div>
+<div id="div-5"></div>
+<div id="div-6"></div>
+<div id="div-7"></div>
+<div id="div-8"></div>
+<script>
+	let scrollPos = 0;
+	let idx;
+	let canScroll = true;
+	const isScrollDown = () => {
+		console.log(document.body.getBoundingClientRect().top);
+		if (document.body.getBoundingClientRect().top > scrollPos) {
+			console.log("up");
+			return false;
+		} else if (document.body.getBoundingClientRect().top < scrollPos) {
+			console.log("down");
+			return true;
+		}
+		// saves the new position for iteration.
+		scrollPos = document.body.getBoundingClientRect().top;
+	};
+	window.addEventListener("scroll", function (event) {
+		console.log(event);
+		event.preventDefault();
+		if (canScroll) {
+			isScrollDown();
+			canScroll = false;
+		} else {
+		}
+	});
+</script> -->

@@ -1,0 +1,16 @@
+{% assign today = 'now' | date: '%s' %}
+{% assign single_day = 86400 %}
+{% assign today_number = 'now' | date: '%u' | plus: 0 %}
+{% if today_number == 1 %}  
+  {% assign days_till_coming_thursday = 4 | minus: today_number %}
+  {% assign days_unix = days_till_coming_thursday | times: single_day %}
+  <p class="announcement-bar__message">Order by midnight tomorrow for delivery this Thursday {{  today | plus: days_unix | date:'%m/%d'}}</p>
+{% elsif today_number == 2 %}
+  {% assign days_till_coming_thursday = 4 | minus: today_number %}
+  {% assign days_unix = days_till_coming_thursday | times: single_day %}
+  <p class="announcement-bar__message">Order by midnight for delivery this Thursday {{today | plus: days_unix | date: '%m/%d' }}</p>
+{% else %}
+  {% assign days_to_thur = 11 | minus: today_number%}
+  {% assign unix_for_thur = days_to_thur | times: single_day%}
+  <p class="announcement-bar__message">Order today for delivery next Thursday {{today | plus: unix_for_thur | date: '%m/%d' }}</p>
+{% endif %}

@@ -1,0 +1,72 @@
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous"
+/>
+<script
+	src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"
+></script>
+<link
+	href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet"
+/>
+
+<div class="dropdown">
+	<button
+		class="btn btn-secondary"
+		type="button"
+		id="dropdownMenuButton"
+		data-toggle="dropdown"
+		aria-haspopup="true"
+		aria-expanded="false"
+	>
+		<span class="material-icons">menu</span>
+	</button>
+	<div class="dropdown-menu rounded" aria-labelledby="dropdownMenuButton">
+		<h2 class="dropdown-header">Restaurants</h2>
+		<a class="dropdown-item" href="#">Slanted Door Naspa</a>
+		<a class="dropdown-item" href="#">Rice and Bones</a>
+		<a class="dropdown-item" href="#">Lasrkspur Fish</a>
+		<a class="dropdown-item" href="#">Hardwater</a>
+		<div class="dropdown-divider"></div>
+		<h2 class="dropdown-header">Shop</h2>
+		<a class="dropdown-item" href="#">Food</a>
+		<a class="dropdown-item" href="#">Gift Card</a>
+		<a class="dropdown-item" href="#">Curated Tabletop and Kitchenware</a>
+		<div class="dropdown-divider"></div>
+		<h2 class="dropdown-header">Help</h2>
+		<a class="dropdown-item" href="#">FAQ</a>
+		<a class="dropdown-item" href="#">Contact</a>
+		<div class="dropdown-divider"></div>
+		<h2 class="dropdown-header">Company</h2>
+		<a class="dropdown-item" href="#">About</a>
+		<a class="dropdown-item" href="#">Careers</a>
+		<a class="dropdown-item" href="#">News</a>
+		<a class="dropdown-item" href="#">Covid-19 Restaurant Guidelines</a>
+	</div>
+	<script>
+		let dropped = false;
+		const menu_btn = document.querySelector("#dropdownMenuButton");
+		menu_btn.addEventListener("click", () => {
+			if (!dropped) {
+				menu_btn.innerHTML = `<span class="material-icons">close</span>`;
+			} else {
+				menu_btn.innerHTML = `<span class="material-icons">menu</span>`;
+			}
+			dropped = !dropped;
+		});
+	</script>
+</div>
