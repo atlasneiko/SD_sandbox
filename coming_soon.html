@@ -1,0 +1,90 @@
+<style>
+	#coming-soon__container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 750px;
+	}
+	.coming-soon__img__container {
+		background: black;
+		height: 895px;
+		position: absolute;
+		max-width: none;
+		width: 100vw;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 1500px;
+	}
+	#coming-soon__background {
+		width: 100%;
+		height: auto;
+		min-width: 1200px;
+		filter: blur(2px);
+		opacity: 0.7;
+	}
+	#coming-soon__sub-container {
+		z-index: 1;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	#slanted-door__logo {
+		width: 450px;
+	}
+	.coming-soon__title {
+		color: white;
+		text-align: center;
+		margin-top: 75px !important;
+		margin-bottom: 0 !important;
+		font-size: 60px;
+	}
+	.landing-comp1_link {
+		text-decoration: none;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 10px;
+		color: white;
+		transition: 0.2s all linear;
+		line-height: 1.5;
+		font-size: 120%;
+		margin-bottom: 0;
+	}
+	.landing-comp1_link:hover {
+		color: white !important;
+	}
+	.landing-comp1_text {
+		margin: 0;
+		padding: 10px 25px;
+		border: 3px solid white;
+	}
+
+	a {
+		text-decoration: none !important;
+		border-bottom: 0 !important;
+	}
+</style>
+<div id="coming-soon__container">
+	<div id="coming-soon__sub-container">
+		<a href="https://slanted-door.myshopify.com/">
+			<img
+				src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/Slanted_Door_logo_white-01_1a41bacf-b1cd-40e7-a623-ce4142f6376e_1296x.png"
+				alt="slanted-door__logo"
+				id="slanted-door__logo"
+			/>
+		</a>
+		<h1 class="coming-soon__title">COMING SOON</h1>
+	</div>
+	<div class="coming-soon__img__container">
+		<img
+			src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/91Ch--z-cWL_1ce9dd0f-0776-4c43-9283-7522256d9703_2450x.jpg"
+			alt="coming-soon__background"
+			id="coming-soon__background"
+		/>
+	</div>
+</div>
