@@ -3315,12 +3315,12 @@
 <!-- news letter component -->
 <div class="newsletter-section index-section--newsletter-background">
 	<div class="page-width">
-		<div class="section-header text-center" style="display: block">
+		<div class="section-header text-center" style="display: block;">
 			<div
 				class="rte"
 				data-live-text-setting="section.1618093114f9e4afef.subheading"
 			>
-				<p style="color: black">
+				<p style="color: black;">
 					Sign up for email updates on our latest projects, travel vlogs with
 					Charles, and upcoming events
 				</p>
@@ -3364,3 +3364,16 @@
 		</form>
 	</div>
 </div>
+<script>
+	const all_products = document.querySelectorAll(".grid-view-item__link");
+	for (product_link of all_products) {
+		product_link.addEventListener("click", (event) => {
+			// bypass default behavior and capture the url 
+			event.preventDefault();
+			const url = event.srcElement.href;
+			console.log(url);
+			// this line redirects to the target url
+			window.location.href = url;
+		});
+	}
+</script>
