@@ -1,3 +1,7 @@
+<script
+	src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+	data-auto-a11y="true"
+></script>
 <style>
 	.section-header {
 		display: none;
@@ -3364,16 +3368,118 @@
 		</form>
 	</div>
 </div>
+<style>
+	.zip-code-checker__container {
+		position: fixed;
+		height: 600px;
+		width: 400px;
+		transition: .1s all linear;
+		background: pink;
+		opacity: .8;
+	}
+	.zip-code__container-hidden{
+		top: -700px;
+	}
+	.zip-code__container-shown{
+		top: 50%;
+		left: 50%;
+		margin-top: -300px;
+		margin-left: -200px;
+	}
+	#zip-code__close-icon{
+		color: red;
+		cursor: pointer;
+	}
+	.zip-code__text-hidden {
+		display: none;
+	}
+	.zip-code__text-shown {
+		display: block;
+	}
+</style>
+<div class="zip-code-checker__container zip-code__container-hidden">
+	<form>
+		<i class="fas fa-times" id="zip-code__close-icon"></i>
+		<p class="zip-code-input__request-text zip-code__text-shown">Please enter your zip code!</p>
+		<p class="zip-code__invalid-text zip-code__text-hidden">Out of range</p>
+		<p class="zip-code__valid-text zip-code__text-hidden">Let's eat!!</p>
+		<input id="zip-code__input" name="zip-code__input" type="text" pattern="[0-9]*">
+		<button type-:"submit">Submit zip code</button>
+	</form>
+</div>
 <script>
+
+
+	const showText = (...eles) =>{
+		eles.forEach(ele =>{
+			ele.classList.remove("zip-code__text-hidden");
+			ele.classList.add("zip-code__text-shown");
+		})
+	}
+	const hideText = (...eles) =>{
+		eles.forEach(ele =>{
+			ele.classList.add("zip-code__text-hidden");
+			ele.classList.remove("zip-code__text-shown");
+		})
+	}
+
+
 	const all_products = document.querySelectorAll(".grid-view-item__link");
 	for (product_link of all_products) {
 		product_link.addEventListener("click", (event) => {
 			// bypass default behavior and capture the url 
 			event.preventDefault();
 			const url = event.srcElement.href;
-			console.log(url);
-			// this line redirects to the target url
-			window.location.href = url;
+			// console.log(url);
+			//* this line redirects to the target url
+			// window.location.href = url;
+			
+			// check to see if zip code is in the service area
+			const zipCodeArr = [
+				 94102, 94103, 94104, 94105, 94107,
+				 94108, 94109, 94110, 94111, 94112,
+				 94114, 94115, 94116, 94117, 94118,
+				 94121, 94122, 94123, 94124, 94127,
+				 94129, 94131, 94132, 94133, 94134,
+				 94158
+			]
+			const zipCodeForm = document.querySelector(".zip-code-checker__container");
+			zipCodeForm.classList.toggle("zip-code__container-hidden")
+			zipCodeForm.classList.toggle("zip-code__container-shown")
+			zipCodeForm.addEventListener("submit", (event) =>{
+				event.preventDefault();
+				const zipCodeInput = parseInt(document.querySelector("#zip-code__input").value)
+				const requestText = document.querySelector(".zip-code-input__request-text");
+				const invalidText = document.querySelector(".zip-code__invalid-text");
+				const validText = document.querySelector(".zip-code__valid-text")
+				if(zipCodeArr.includes(zipCodeInput)){
+					hideText(requestText, invalidText);
+					showText(validText);
+					console.log("product detail!")
+					setTimeout(()=>{
+						window.location.href = url;
+					}, 3000)
+
+				} else {
+					hideText(requestText, validText);
+					showText(invalidText)
+					console.log("gold belly")
+					setTimeout(() =>{
+						window.location.href = "https://www.goldbelly.com/the-slanted-door"
+					},3000)
+				}
+			})
+
+			
+		// toggle zip code checker by clicking on close icon
+			const closeIcon = document.querySelector("#zip-code__close-icon");
+			console.log(closeIcon)
+			closeIcon.addEventListener("click", (event)=>{
+				zipCodeForm.classList.toggle("zip-code__container-hidden")
+				zipCodeForm.classList.toggle("zip-code__container-shown")
+			})
+			
 		});
 	}
+
 </script>
