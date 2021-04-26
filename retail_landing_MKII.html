@@ -3555,8 +3555,7 @@
 		// toggle zip code checker by clicking on close icon
 			const closeIcon = document.querySelector("#zip-code__close-icon");
 			closeIcon.addEventListener("click", (event)=>{
-				zipCodeForm.classList.toggle("zip-code__container-hidden")
-				zipCodeForm.classList.toggle("zip-code__container-shown")
+				zipCodeForm.classList.remove("zip-code__container-shown")
 			})
 			
 		});
