@@ -3410,9 +3410,9 @@
 		position: fixed;
 		height: 100vh;
 		width: 100vw;
-		background: rgba(0,0,0,0.8);
+		background: pink;
+		opacity: .8;
 		display: none;
-		z-index: 10;
 	}
 	.zip-code__container-hidden{
 		top: -700px;
@@ -3429,24 +3429,14 @@
 		
 	}
 	.zipe-code__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: space-evenly; */
-    height: 650px;
-    width: 450px;
-    /* border: 5px double white; */
-    top: 80px;
-    position: relative;
-    background: white;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 	#close-icon__container{
 		width: 100%;
 		padding-left: 1%;
-		margin-bottom: 60px;
 	}
 	#zip-code__close-icon{
 		/* color: red; */
@@ -3458,36 +3448,17 @@
 	.zip-code__text-shown {
 		display: block;
 	}
-	p.zip-code-input__request-text {
-    font-size: 25px;
-    margin-bottom: 50px;
-	}
-	input#zip-code__input {
-    border: 1px solid black;
-    border-radius: 0;
-    margin-bottom: 50px;
-	}
-	#zip-code__input:focus{
-		border-radius: 0;
-	}
-	#zip-code__submit{
-		border: 3px solid black;
-    background: white;
-    border-radius: 0;
-    padding: 10px 20px;
-    font-weight: 600;
-	}
 </style>
 <div class="zip-code-checker__container zip-code__container-hidden">
 	<form class="zipe-code__form">
 		<div id="close-icon__container">
 			<i class="fas fa-times" id="zip-code__close-icon"></i>
 		</div>
-		<p class="zip-code-input__request-text zip-code__text-shown">Tell us your zip code so we can check our availability to your area.</p>
-		<p class="zip-code__invalid-text zip-code__text-hidden">We're so sorry that we aren't yet able to deliver all of our offerings to your area yet. Our team is working hard to expand our delivery regions to your neighborhood, but don't worry! In the meantime, please enjoy a delivery from our shop on Goldbelly. We're redirecting you there now. </p>
-		<p class="zip-code__valid-text zip-code__text-hidden">Good news! We can deliver right to your doorstep. Let's eat!</p>
-		<input id="zip-code__input" name="zip-code__input" type="text" pattern="[0-9]*" placeholder="your zip code">
-		<button type:"submit" id="zip-code__submit">Submit</button>
+		<p class="zip-code-input__request-text zip-code__text-shown">Please enter your zip code!</p>
+		<p class="zip-code__invalid-text zip-code__text-hidden">Out of range</p>
+		<p class="zip-code__valid-text zip-code__text-hidden">Let's eat!!</p>
+		<input id="zip-code__input" name="zip-code__input" type="text" pattern="[0-9]*">
+		<button type-:"submit">Submit zip code</button>
 	</form>
 </div>
 <script>
@@ -3506,7 +3477,7 @@
 		})
 	}
 	const isLocal = window.sessionStorage.getItem("isLocal");
-	if(isLocal !== 'true'){
+	if(!isLocal){
 	const all_products = document.querySelectorAll(".grid-view-item__link");
 	for (product_link of all_products) {
 		product_link.addEventListener("click", (event) => {
@@ -3548,6 +3519,7 @@
 					setTimeout(() =>{
 						window.location.href = "https://www.goldbelly.com/the-slanted-door"
 					},3000);
+					window.sessionStorage.setItem("isLocal",false);
 				}
 			})
 

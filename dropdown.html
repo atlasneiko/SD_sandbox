@@ -1,5 +1,130 @@
 <link
 	rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+<style>
+	#burger-btn__container {
+		border: 0;
+		background: transparent;
+		position: absolute;
+		z-index: 12;
+	}
+	#menu-burger-btn {
+		color: white;
+		font-size: 45px;
+	}
+	.dropdown-nav {
+		display: none;
+		flex-direction: column;
+		background: black;
+		width: fit-content;
+		color: white;
+		padding-left: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+		position: fixed;
+		z-index: 91;
+		top: 110px;
+	}
+	.dropdown-nav__shown {
+		display: flex;
+	}
+	.dropdown-header {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.dropdown-link {
+		color: white;
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		margin-bottom: 3px;
+	}
+	.dropdown-link:hover {
+		border-color: white;
+		color: white !important;
+	}
+</style>
+<button id="burger-btn__container">
+	<span id="menu-burger-btn" class="material-icons">menu</span>
+</button>
+<nav id="dropdown-nav" class="dropdown-nav">
+	<h2 class="dropdown-header">Restaurants</h2>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/restaurants#slanted_door_napa-card"
+		>Slanted Door Napa</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/restaurants#rice_and_bones-card"
+		>Rice and Bones</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/restaurants#larkspur_fish-card"
+		>Larkspur Fish</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/restaurants#hardwater-card"
+		>Hardwater</a
+	>
+	<h2 class="dropdown-header">Shop</h2>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/food-delivery#retail-landing__signature-dish"
+		>Food</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/products/slanted-door-meal-kit-gift-card"
+		>Gift Card</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/food-delivery#retail-landing__houseware"
+		>Curated Tabletop and Kitchenware</a
+	>
+	<h2 class="dropdown-header">Help</h2>
+	<a class="dropdown-link" href="https://slanted-door.myshopify.com/pages/faq"
+		>FAQ</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/contact"
+		>Contact</a
+	>
+	<h2 class="dropdown-header">Company</h2>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/about-us"
+		>About</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/careers"
+		>Careers</a
+	>
+	<a class="dropdown-link" href="https://slanted-door.myshopify.com/pages/news"
+		>News</a
+	>
+	<a
+		class="dropdown-link"
+		href="https://slanted-door.myshopify.com/pages/covid-19-restaurant-guidlines"
+		>Covid-19 Restaurant Guidelines</a
+	>
+</nav>
+<script>
+	const btn = document.querySelector("#menu-burger-btn");
+	btn.addEventListener("click", (event) => {
+		console.log("clicked");
+		const menu = document.querySelector("#dropdown-nav");
+		menu.classList.toggle("dropdown-nav__shown");
+	});
+</script>
+
+<!-- <link
+	rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous"
@@ -69,4 +194,4 @@
 			dropped = !dropped;
 		});
 	</script>
-</div>
+</div> -->
