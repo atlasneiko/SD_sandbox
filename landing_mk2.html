@@ -1,0 +1,265 @@
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+	crossorigin="anonymous"
+/>
+<style>
+	body {
+		margin: 0;
+	}
+	#shopify-section-header {
+		display: none;
+	}
+	div .section-header.text-center {
+		display: none;
+	}
+	main#MainContent {
+		padding-top: 0 !important;
+	}
+	.site-footer {
+		display: none !important;
+	}
+	.grid__item.medium-up--five-sixths.medium-up--push-one-twelfth {
+		padding-left: 0;
+		display: flex;
+		align-items: center;
+	}
+	.rte {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	#splash-container {
+		display: flex;
+		flex-direction: row;
+		height: 100vh;
+		width: 100vw;
+	}
+	#splash-left-div {
+		width: 18vw;
+		padding-right: 15px;
+		background: black;
+		text-align: right;
+		color: white;
+		padding-top: 50px;
+	}
+	#splash-right-div {
+		width: 82vw;
+		overflow: hidden;
+		display: flex;
+		align-items: flex-end;
+	}
+	#splash-right-div img {
+		width: 100%;
+		height: auto;
+		filter: blur(2px) saturate(1.3);
+		min-width: 1470px;
+		position: absolute;
+	}
+	#splash-left-div h1 {
+		margin: 0;
+		letter-spacing: 2px;
+	}
+
+	#splash-nav__1 ul,
+	#splash-nav__2 ul,
+	#splash-nav__3 ul {
+		list-style: none outside;
+		padding-inline-start: 0;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-end;
+		display: flex;
+		margin: 0;
+	}
+	#splash-nav__1 {
+		padding-top: 10vh;
+		padding-bottom: 7vh;
+	}
+	#splash-nav__2 ul {
+		list-style: none outside;
+		padding-inline-start: 0;
+		align-items: flex-start;
+		position: absolute;
+		left: 19.5vw;
+		top: 208px;
+		background: rgb(0 0 0 / 80%);
+		padding: 18px;
+		z-index: 2;
+	}
+	#restaurant-menu-btn {
+		cursor: pointer;
+		border-bottom: 1px solid transparent;
+	}
+	#restaurant-menu-btn p {
+		font-size: 22px;
+		margin: 0;
+		color: white;
+	}
+	@keyframes breathe {
+		0% {
+			opacity: 1;
+		}
+		25% {
+			opacity: 0.4;
+		}
+		50% {
+			opacity: 0.8;
+		}
+		75% {
+			opacity: 0.6;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	#restaurant-menu-btn p i {
+		font-size: 15px;
+		animation: breathe 3s linear infinite;
+	}
+	#restaurant-menu-btn:hover {
+		border-bottom-color: white;
+	}
+
+	.restaurant-menu__hidden {
+		display: none;
+	}
+
+	#splash-nav__1 ul a,
+	#splash-nav__2 ul a,
+	#splash-nav__3 ul a {
+		text-decoration: none;
+		color: white;
+		border-bottom: 1px solid transparent;
+		font-size: 22px;
+		line-height: 1.5;
+	}
+	#splash-nav__1 ul a:hover,
+	#splash-nav__2 ul a:hover,
+	#splash-nav__3 ul a:hover {
+		border-bottom-color: white;
+	}
+	@media only screen and (max-width: 1675px) {
+		#splash-left-div {
+			width: 25vw;
+		}
+		#splash-nav__2 ul {
+			left: 24vw;
+		}
+	}
+
+	@media only screen and (max-width: 1410px) {
+		#splash-left-div {
+			width: 35vw;
+		}
+		#splash-nav__2 ul {
+			left: 32vw;
+		}
+	}
+	@media only screen and (max-width: 1000px) {
+		#splash-nav__2 ul {
+			top: 250px;
+		}
+	}
+	@media only screen and (max-width: 825px) {
+		#splash-nav__2 ul {
+			top: 239px;
+		}
+	}
+</style>
+<div id="splash-container">
+	<div id="splash-left-div">
+		<h1>SLANTED DOOR</h1>
+		<h1>GROUP</h1>
+
+		<nav id="splash-nav__1">
+			<ul>
+				<li class="splash_nav__item" id="restaurant-menu-btn">
+					<p>restaurants <i class="fas fa-chevron-right"></i></p>
+					<nav id="splash-nav__2" class="restaurant-menu__hidden">
+						<ul>
+							<li class="splash_nav__item">
+								<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+									>SD NP</a
+								>
+							</li>
+							<li class="splash_nav__item">
+								<a href="https://www.slanteddoor.com/las-vegas">SD LV</a>
+							</li>
+							<li class="splash_nav__item">
+								<a href="https://www.slanteddoor.com/">SD SF</a>
+							</li>
+							<li class="splash_nav__item">
+								<a href="https://www.slanteddoor-sanramon.com/">SD SR</a>
+							</li>
+							<li class="splash_nav__item">
+								<a href="https://www.hardwaterbar.com/">Hardwater</a>
+							</li>
+							<li class="splash_nav__item">
+								<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+									>Larkspur TBD</a
+								>
+							</li>
+							<li class="splash_nav__item">
+								<a href="https://www.riceandbones.com/">Rice + Bones</a>
+							</li>
+						</ul>
+					</nav>
+				</li>
+				<li class="splash_nav__item">
+					<a href="https://slanted-door.myshopify.com/pages/food-delivery">
+						slanted door at home
+					</a>
+				</li>
+				<li class="splash_nav__item">
+					<a
+						href="https://slanted-door.myshopify.com/pages/wo-hing-general-store"
+						>wo hing general store</a
+					>
+				</li>
+			</ul>
+		</nav>
+		<nav id="splash-nav__3">
+			<ul>
+				<li class="splash_nav__item">
+					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+						>about</a
+					>
+				</li>
+				<li class="splash_nav__item">
+					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+						>careers</a
+					>
+				</li>
+				<li class="splash_nav__item">
+					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+						>contact</a
+					>
+				</li>
+				<li class="splash_nav__item">
+					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+						>press</a
+					>
+				</li>
+				<li class="splash_nav__item">
+					<a href="https://slanted-door.myshopify.com/pages/coming-soon">FAQ</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div id="splash-right-div">
+		<img
+			class="landing-comp1-img"
+			src="https://images.squarespace-cdn.com/content/v1/5a620e71ace864211cfbdf6d/1516483757338-0IC39XCHBNBHZJETL1M8/ke17ZwdGBToddI8pDm48kKtijf5x5S0rIV7X_qDH3dB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UaZbTVdO5VSPAOxIcVIbmIFLIFeVDbQiz7iBIgNCzklBDD2o6CESiqIlH5ssNFrtmA/SlantedDoor_01.jpg"
+		/>
+	</div>
+</div>
+<script>
+	document
+		.querySelector("#restaurant-menu-btn p")
+		.addEventListener("click", () => {
+			const restaurant_menu = document.querySelector("#splash-nav__2");
+			restaurant_menu.classList.toggle("restaurant-menu__hidden");
+		});
+</script>
