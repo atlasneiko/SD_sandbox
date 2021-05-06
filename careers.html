@@ -1,0 +1,317 @@
+<style>
+	customize for shopify .main-content .section-header.text-center {
+		display: none;
+	}
+	.grid__item.medium-up--five-sixths.medium-up--push-one-twelfth > .rte {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.careers-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 50px;
+	}
+	.careers__title {
+		margin-bottom: 0;
+	}
+	.careers__text {
+		margin-bottom: 0;
+		font-size: 20px;
+		text-align: center;
+	}
+	.careers__hr {
+		margin: 40px 0px;
+		border-bottom: 1px solid black;
+	}
+	.careers__form-row {
+		display: flex;
+		flex-direction: column;
+	}
+	label {
+		color: black;
+	}
+	.careers__form-subject {
+		display: none !important;
+	}
+	.contact-form {
+		width: 90vw;
+		max-width: 900px;
+		display: flex;
+		flex-direction: column;
+	}
+	.careers__input {
+		width: 300px !important;
+	}
+	.careers__form-radios {
+		/* border: 1px solid black; */
+		display: flex;
+		/* justify-content: space-between; */
+	}
+	.careers__form-radios .careers__text {
+		display: inline-block;
+		padding-right: 25px;
+	}
+	.careers__form-radios label {
+		display: inline-block;
+		padding-right: 10px;
+	}
+	.contact-form {
+		padding-top: 50px;
+	}
+	.contact-form .btn {
+		max-width: fit-content;
+	}
+	#careers__paragraph {
+		font-size: 16px;
+	}
+</style>
+
+<div class="careers-container">
+	<h1 class="careers__title">Careers</h1>
+	<hr class="careers__hr" width="30%" />
+	<p class="careers__text" id="careers__paragraph">
+		Slanted Door Group is always searching for passionate and dedicated members
+		to join our team. We acknowledge that positions might not be open right now,
+		or the timing might not be right for you. Leave us your information below,
+		and we will contact you when there is an opportunity available.
+	</p>
+	<hr class="careers__hr" width="30%" />
+	<p class="careers__text">Open positions coming soon...</p>
+	<div class="contact-form form-vertical">
+		<form
+			method="post"
+			action="/contact#ContactForm"
+			id="ContactForm"
+			accept-charset="UTF-8"
+			class="contact-form"
+		>
+			<input type="hidden" name="form_type" value="contact" /><input
+				type="hidden"
+				name="utf8"
+				value="✓"
+			/>
+			<div class="careers__form-subject">
+				<label for="type">Subject</label>
+				<input
+					type="text"
+					id="contactForm-type"
+					name="contact[Email Type]"
+					value="Job Application"
+				/>
+			</div>
+			<!-- <div class="grid grid--half-gutters">
+        <div class="grid__item medium-up--one-half">
+          <label for="ContactForm-name">Name</label>
+          <input
+            type="text"
+            id="ContactForm-name"
+            name="contact[Name]"
+            value=""
+          />
+        </div>
+        <div class="grid__item medium-up--one-half">
+          <label for="ContactForm-email"
+            >Email <span aria-hidden="true">*</span></label
+          >
+          <input
+            type="email"
+            id="ContactForm-email"
+            name="contact[email]"
+            autocorrect="off"
+            autocapitalize="off"
+            value=""
+            aria-required="true"
+          />
+        </div>
+      </div> -->
+			<label for="firstName"
+				>First Name<span aria-hidden="true">*</span>
+				<input
+					class="careers__input"
+					type="text"
+					id="contactForm-firstName"
+					name="contact[First Name]"
+					value=""
+					required
+				/>
+			</label>
+			<label for="lastName"
+				>Last Name<span aria-hidden="true">*</span>
+				<input
+					class="careers__input"
+					type="text"
+					id="contactForm-lastName"
+					name="contact[Last Name]"
+					value=""
+					required
+				/>
+			</label>
+			<label for="ContactForm-email"
+				>Email <span aria-hidden="true">*</span>
+				<input
+					class="careers__input"
+					type="email"
+					id="ContactForm-email"
+					name="contact[email]"
+					autocorrect="off"
+					autocapitalize="off"
+					value=""
+					aria-required="true"
+				/>
+			</label>
+			<label for="ContactForm-phone"
+				>Phone Number<span aria-hidden="true">*</span>
+				<input
+					class="careers__input"
+					type="tel"
+					id="ContactForm-phone"
+					name="contact[Phone Number]"
+					pattern="[0-9\-]*"
+					value=""
+					required
+				/>
+			</label>
+			<label for="position"
+				>Desired Job Role
+				<input
+					class="careers__input"
+					type="text"
+					id="contactForm-position"
+					name="contact[position]"
+					value=""
+				/>
+			</label>
+			<label for="ContactForm-message"
+				>Briefly tell us about yourself<span aria-hidden="true">*</span></label
+			>
+			<textarea
+				rows="10"
+				cols="30"
+				id="ContactForm-message"
+				name="contact[Message]"
+				required
+			></textarea>
+			<div class="careers__form-radios">
+				<p class="careers__text">
+					Are you eligible to legally work in the U.S.?
+				</p>
+				<label for="eligibility-yes"
+					>Yes <input type="radio" name="contact[Work Eligibility]" value="yes"
+				/></label>
+				<label for="eligibility-no"
+					>No <input type="radio" name="contact[Work Eligibility]" value="no"
+				/></label>
+			</div>
+			<div class="careers__form-radios">
+				<p class="careers__text">
+					Have you ever worked for Slanted Door Group before?
+				</p>
+				<label for="used-to-yes"
+					>Yes
+					<input type="radio" name="contact[Used to Work with Us]" value="yes"
+				/></label>
+				<label for="used-to-no"
+					>No
+					<input type="radio" name="contact[Used to Work with Us]" value="no"
+				/></label>
+			</div>
+			<input type="submit" class="btn" value="Send" />
+		</form>
+	</div>
+</div>
+<!-- news letter component -->
+<div class="newsletter-section index-section--newsletter-background">
+	<div class="page-width">
+		<div class="section-header text-center" style="display: block;">
+			<div
+				class="rte"
+				data-live-text-setting="section.1618093114f9e4afef.subheading"
+			>
+				<p style="color: black;">
+					Sign up for email updates on our latest projects, travel vlogs with
+					Charles, and upcoming events
+				</p>
+			</div>
+		</div>
+		<form
+			method="post"
+			action="/contact?oseid=pmhzZZ7q2mdcromc6YG8xK7g#Contact_1618093114f9e4afef"
+			id="Contact_1618093114f9e4afef"
+			accept-charset="UTF-8"
+			class="contact-form form-single-field"
+			novalidate="novalidate"
+			data-editor-form-attribute=""
+		>
+			<input type="hidden" name="form_type" value="customer" /><input
+				type="hidden"
+				name="utf8"
+				value="✓"
+			/>
+			<input type="hidden" name="contact[tags]" value="newsletter" />
+			<div class="input-group">
+				<input
+					type="email"
+					name="contact[email]"
+					id="Contact_1618093114f9e4afef-email"
+					class="input-group__field"
+					value=""
+					placeholder="Email address"
+					aria-label="Email address"
+					aria-required="true"
+					autocorrect="off"
+					autocapitalize="off"
+				/>
+				<span class="input-group__btn">
+					<button type="submit" class="btn" name="commit">
+						<span>Subscribe</span>
+					</button>
+				</span>
+			</div>
+			<input type="hidden" name="oseid" value="pmhzZZ7q2mdcromc6YG8xK7g" />
+		</form>
+	</div>
+</div>
+
+<!-- <form
+  action="mailto:atlasneiko@gmail.com"
+  method="post"
+  class="careers__form"
+>
+  <div class="careers__form-row">
+    <label for="FirstName"
+      >First Name *
+      <input type="text" name="firstName" id="firstName" required />
+    </label>
+    <label for="lastName"
+      >Last Name *
+      <input type="text" name="lastName" id="lastName" required />
+    </label>
+    <label for="email">
+      Email *
+      <input type="email" name="email" id="email" required />
+    </label>
+    <label for="phoneNumber">
+      Phone Number *
+      <input
+        name="phoneNumber"
+        type="tel"
+        id="phoneNumber"
+        placeholder="123-456-7890"
+        pattern="[0-9]{10}"
+        required
+      />
+    </label>
+    <label for="desiredJobRole">
+      Desired Job Role
+      <input type="text" name="desired job role" />
+    </label>
+  </div>
+  <label for="summary">Briefly tell about yourself * </label>
+  <textarea name="summary" id="summary" rows="12" cols="35"></textarea>
+  <div class="careers__form-btns">
+    <input type="submit" name="submit" value="Send" />
+    <input type="reset" name="reset" value="Clear Form" />
+  </div>
+</form> -->

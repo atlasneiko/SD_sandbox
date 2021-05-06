@@ -1,0 +1,271 @@
+<style>
+	customize for shopify .main-content .section-header.text-center {
+		display: none;
+	}
+	.grid__item.medium-up--five-sixths.medium-up--push-one-twelfth > .rte {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.contact-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 50px;
+	}
+	.contact__link-ul {
+		list-style: none outside !important;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 0 !important;
+		margin-bottom: 0 !important;
+	}
+	.contact__restaurant-item:nth-child(5) {
+		height: 30px;
+	}
+	.contact__restaurant-item a {
+		color: black !important;
+		border-bottom: 1px solid transparent !important;
+		font-size: 20px;
+	}
+	.contact__link {
+		color: black !important;
+		border: 1px solid transparent !important;
+		font-size: 18px;
+	}
+	.contact__link:hover {
+		border-bottom-color: black !important;
+	}
+	.contact__restaurant-item a:hover {
+		border-bottom-color: black !important;
+	}
+	.contact__title {
+		margin-bottom: 0;
+	}
+	.contact__text {
+		margin-bottom: 0;
+		font-size: 20px;
+		padding-bottom: 20px;
+	}
+	.contact__hr {
+		margin: 40px 0px;
+		border-bottom: 1px solid black;
+	}
+	.contact__form-row {
+		display: flex;
+		flex-direction: column;
+	}
+	label {
+		color: black;
+	}
+	.contact__form-subject {
+		display: none !important;
+	}
+	.contact-form {
+		width: 90vw;
+		max-width: 900px;
+		display: flex;
+		flex-direction: column;
+	}
+	.contact__input {
+		width: 300px !important;
+	}
+	.contact__form-radios {
+		display: flex;
+	}
+	.contact__form-radios .contact__text {
+		display: inline-block;
+		padding-right: 25px;
+	}
+	.contact__form-radios label {
+		display: inline-block;
+		padding-right: 10px;
+	}
+
+	.contact-form .btn {
+		max-width: fit-content;
+	}
+</style>
+<div class="contact-container">
+	<!-- <h1 class="contact__title">Contact</h1> -->
+	<hr class="contact__hr" width="30%" />
+	<p class="contact__text">Restaurant Inquiries</p>
+	<ul class="contact__link-ul">
+		<li class="contact__restaurant-item">
+			<a href="https://www.slanteddoor.com/">Slanted Door San Francisco</a>
+		</li>
+		<li class="contact__restaurant-item">
+			<a href="https://www.slanteddoor-sanramon.com/">Slanted Door San Ramon</a>
+		</li>
+		<li class="contact__restaurant-item">
+			<a href="https://www.slanteddoor.com/las-vegas">Slanted Door Las Vegas</a>
+		</li>
+		<li class="contact__restaurant-item">
+			<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+				>Slanted Door Napa</a
+			>
+		</li>
+		<li class="contact__restaurant-item"></li>
+
+		<li class="contact__restaurant-item">
+			<a href="https://www.hardwaterbar.com/">Hardwater</a>
+		</li>
+		<li class="contact__restaurant-item">
+			<a href="https://www.riceandbones.com/">Rice & Bones</a>
+		</li>
+		<li class="contact__restaurant-item">
+			<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+				>Larkspur TBD</a
+			>
+		</li>
+		<li class="contact__restaurant-item">
+			<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+				>Sandwich Shop</a
+			>
+		</li>
+	</ul>
+	<hr class="contact__hr" width="30%" />
+	<p class="contact__text">Retail Inquiries</p>
+	<!-- <p class="contact__text">retail@slanteddoorgroup.com</p> -->
+	<a href="mailto:slanteddoorgroup.com" class="contact__link"
+		>retail@slanteddoorgroup.com</a
+	>
+	<hr class="contact__hr" width="30%" />
+	<p class="contact__text">Contact us</p>
+
+	<div class="contact-form form-vertical">
+		<form
+			method="post"
+			action="/contact#ContactForm"
+			id="ContactForm"
+			accept-charset="UTF-8"
+			class="contact-form"
+		>
+			<input type="hidden" name="form_type" value="contact" /><input
+				type="hidden"
+				name="utf8"
+				value="✓"
+			/>
+			<div class="contact__form-subject">
+				<label for="type">Subject</label>
+				<input
+					type="text"
+					id="contactForm-type"
+					name="contact[Email Type]"
+					value="Inquiries"
+				/>
+			</div>
+			<label for="firstName"
+				>First Name<span aria-hidden="true">*</span>
+				<input
+					class="contact__input"
+					type="text"
+					id="contactForm-firstName"
+					name="contact[First Name]"
+					value=""
+					required
+				/>
+			</label>
+			<label for="lastName"
+				>Last Name<span aria-hidden="true">*</span>
+				<input
+					class="contact__input"
+					type="text"
+					id="contactForm-lastName"
+					name="contact[Last Name]"
+					value=""
+					required
+				/>
+			</label>
+			<label for="ContactForm-email"
+				>Email <span aria-hidden="true">*</span>
+				<input
+					class="contact__input"
+					type="email"
+					id="ContactForm-email"
+					name="contact[email]"
+					autocorrect="off"
+					autocapitalize="off"
+					value=""
+					aria-required="true"
+				/>
+			</label>
+			<label for="ContactForm-phone"
+				>Phone Number<span aria-hidden="true">*</span>
+				<input
+					class="contact__input"
+					type="tel"
+					id="ContactForm-phone"
+					name="contact[Phone Number]"
+					pattern="[0-9\-]*"
+					value=""
+					required
+				/>
+			</label>
+			<label for="ContactForm-message"
+				>Message<span aria-hidden="true">*</span></label
+			>
+			<textarea
+				rows="10"
+				cols="30"
+				id="ContactForm-message"
+				name="contact[Message]"
+				required
+			></textarea>
+			<input type="submit" class="btn" value="Send" />
+		</form>
+	</div>
+</div>
+<!-- news letter component -->
+<div class="newsletter-section index-section--newsletter-background">
+	<div class="page-width">
+		<div class="section-header text-center" style="display: block;">
+			<div
+				class="rte"
+				data-live-text-setting="section.1618093114f9e4afef.subheading"
+			>
+				<p style="color: black;">
+					Sign up for email updates on our latest projects, travel vlogs with
+					Charles, and upcoming events
+				</p>
+			</div>
+		</div>
+		<form
+			method="post"
+			action="/contact?oseid=pmhzZZ7q2mdcromc6YG8xK7g#Contact_1618093114f9e4afef"
+			id="Contact_1618093114f9e4afef"
+			accept-charset="UTF-8"
+			class="contact-form form-single-field"
+			novalidate="novalidate"
+			data-editor-form-attribute=""
+		>
+			<input type="hidden" name="form_type" value="customer" /><input
+				type="hidden"
+				name="utf8"
+				value="✓"
+			/>
+			<input type="hidden" name="contact[tags]" value="newsletter" />
+			<div class="input-group">
+				<input
+					type="email"
+					name="contact[email]"
+					id="Contact_1618093114f9e4afef-email"
+					class="input-group__field"
+					value=""
+					placeholder="Email address"
+					aria-label="Email address"
+					aria-required="true"
+					autocorrect="off"
+					autocapitalize="off"
+				/>
+				<span class="input-group__btn">
+					<button type="submit" class="btn" name="commit">
+						<span>Subscribe</span>
+					</button>
+				</span>
+			</div>
+			<input type="hidden" name="oseid" value="pmhzZZ7q2mdcromc6YG8xK7g" />
+		</form>
+	</div>
+</div>

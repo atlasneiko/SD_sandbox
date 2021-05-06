@@ -14,6 +14,17 @@
 	div .section-header.text-center {
 		display: none;
 	}
+	.page-width {
+		padding-left: 0;
+		padding-right: 0;
+		margin: 0;
+		max-width: none;
+	}
+	.grid__item.medium-up--five-sixths.medium-up--push-one-twelfth {
+		padding: 0;
+		left: 0;
+		width: 101vw;
+	}
 	main#MainContent {
 		padding-top: 0 !important;
 	}
@@ -29,9 +40,12 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
-		margin-left: 0 !important;
 		padding-left: 25px;
 		padding-right: 25px;
+		height: 6vh;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 0 !important;
 	}
 	.custom-page-container {
 		display: flex;
@@ -39,6 +53,7 @@
 		justify-content: center;
 		align-items: center;
 		/* position: absolute; */
+		width: 103vw;
 	}
 	.splash-component {
 		display: flex;
@@ -46,7 +61,7 @@
 		justify-content: center;
 		align-items: center;
 		width: 100vw;
-		height: 40vw;
+		height: 86vh;
 		background: black;
 		max-width: none;
 	}
@@ -65,7 +80,7 @@
 		overflow: hidden;
 		position: absolute;
 		width: 100vw;
-		height: 40vw;
+		height: 86vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -77,52 +92,51 @@
 		opacity: 0.6;
 		position: absolute;
 		filter: saturate(1.4) blur(1px);
+		min-width: 1300px;
+	}
+	.splash-nav__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 50px;
+		padding: 3px 15px 2px 15px;
+		margin-bottom: 0 !important;
 	}
 	.splash-nav__item a {
 		text-decoration: none !important;
 		color: black !important;
 		font-size: 20px;
 		border-bottom: 1px solid transparent !important;
+		text-align: center;
+		margin-bottom: 0 !important;
 	}
 	.splash-nav__item a:hover {
 		border-bottom-color: black !important;
 	}
-	#spalsn-nav-1 {
-		padding-top: 35px;
-		padding-bottom: 15px;
-	}
-	@media only screen and (max-width: 600px) {
+
+	@media only screen and (max-width: 1125px) {
+		.splash-nav__ul {
+			height: 10vh;
+			justify-content: space-around;
+		}
 		.splash-component {
-			height: 60vw;
+			height: 78vh;
 		}
 		.splash-component div {
-			height: 60vw;
+			height: 78vh;
 		}
 	}
-	@media only screen and (max-width: 500px) {
-		.splash-component {
-			height: 100vw;
+	@media only screen and (max-width: 685px) {
+		.splash-nav__u .splash-nav__item a {
+			font-size: 16px;
 		}
-		.splash-component div {
-			height: 100vw;
-		}
-		.splash-component img {
-			width: 720px;
+		.splash-nav__item {
+			padding: 10px 5px 3px 5px;
 		}
 	}
 </style>
 <div class="custom-page-container">
-	<div class="splash-component">
-		<div>
-			<img
-				class="landing-comp1-img"
-				src="https://images.squarespace-cdn.com/content/v1/5a620e71ace864211cfbdf6d/1516483757338-0IC39XCHBNBHZJETL1M8/ke17ZwdGBToddI8pDm48kKtijf5x5S0rIV7X_qDH3dB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UaZbTVdO5VSPAOxIcVIbmIFLIFeVDbQiz7iBIgNCzklBDD2o6CESiqIlH5ssNFrtmA/SlantedDoor_01.jpg"
-			/>
-		</div>
-		<h1>SLANTED DOOR</h1>
-		<h1>GROUP</h1>
-	</div>
-	<nav class="splash-nav" id="spalsn-nav-1">
+	<nav class="splash-nav" id="spalsh-nav-1">
 		<ul class="splash-nav__ul">
 			<li class="splash-nav__item">
 				<a href="https://slanted-door.myshopify.com/pages/food-delivery"
@@ -151,7 +165,18 @@
 			</li>
 		</ul>
 	</nav>
-	<nav class="splasn-nav" id="spalsn-nav-2">
+	<div class="splash-component">
+		<div>
+			<img
+				class="landing-comp1-img"
+				src="https://images.squarespace-cdn.com/content/v1/5a620e71ace864211cfbdf6d/1516483757338-0IC39XCHBNBHZJETL1M8/ke17ZwdGBToddI8pDm48kKtijf5x5S0rIV7X_qDH3dB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UaZbTVdO5VSPAOxIcVIbmIFLIFeVDbQiz7iBIgNCzklBDD2o6CESiqIlH5ssNFrtmA/SlantedDoor_01.jpg"
+			/>
+		</div>
+		<h1>SLANTED DOOR</h1>
+		<h1>GROUP</h1>
+	</div>
+
+	<nav class="splasn-nav" id="spalsh-nav-2">
 		<ul class="splash-nav__ul">
 			<li class="splash-nav__item">
 				<a href="https://slanted-door.myshopify.com/pages/coming-soon">SD NP</a>
