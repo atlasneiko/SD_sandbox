@@ -39,22 +39,23 @@
 	#splash-left-div {
 		width: 18vw;
 		padding-right: 15px;
-		background: black;
+		background: white;
 		text-align: right;
-		color: white;
+		color: black;
 		padding-top: 50px;
+		box-shadow: 3px 0px 5px black;
 	}
 	#splash-right-div {
 		width: 82vw;
 		overflow: hidden;
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 	}
 	#splash-right-div img {
 		width: 100%;
 		height: auto;
-		filter: blur(2px) saturate(1.3);
-		min-width: 1470px;
+		filter: blur(1px) saturate(1.3);
+		min-width: 1510px;
 		position: absolute;
 	}
 	#splash-left-div h1 {
@@ -84,7 +85,7 @@
 		position: absolute;
 		left: 19.5vw;
 		top: 208px;
-		background: rgb(0 0 0 / 80%);
+		background: rgb(255 255 255 / 36%);
 		padding: 18px;
 		z-index: 2;
 	}
@@ -95,7 +96,7 @@
 	#restaurant-menu-btn p {
 		font-size: 22px;
 		margin: 0;
-		color: white;
+		color: black;
 	}
 	@keyframes breathe {
 		0% {
@@ -119,7 +120,7 @@
 		animation: breathe 3s linear infinite;
 	}
 	#restaurant-menu-btn:hover {
-		border-bottom-color: white;
+		border-bottom-color: black;
 	}
 
 	.restaurant-menu__hidden {
@@ -130,7 +131,7 @@
 	#splash-nav__2 ul a,
 	#splash-nav__3 ul a {
 		text-decoration: none;
-		color: white;
+		color: black;
 		border-bottom: 1px solid transparent;
 		font-size: 22px;
 		line-height: 1.5;
@@ -138,10 +139,16 @@
 	#splash-nav__1 ul a:hover,
 	#splash-nav__2 ul a:hover,
 	#splash-nav__3 ul a:hover {
-		border-bottom-color: white;
+		border-bottom-color: black;
 	}
 	#splash-nav__3 {
 		padding-top: 36vh;
+	}
+	.nav-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-bottom: 30px;
 	}
 	@media only screen and (max-width: 1675px) {
 		#splash-left-div {
@@ -183,81 +190,84 @@
 	<div id="splash-left-div">
 		<h1>SLANTED DOOR</h1>
 		<h1>GROUP</h1>
-
-		<nav id="splash-nav__1">
-			<ul>
-				<li class="splash_nav__item" id="restaurant-menu-btn">
-					<p>restaurants <i class="fas fa-chevron-right"></i></p>
-					<nav id="splash-nav__2" class="restaurant-menu__hidden">
-						<ul>
-							<li class="splash_nav__item">
-								<a href="https://slanted-door.myshopify.com/pages/coming-soon"
-									>SD NP</a
-								>
-							</li>
-							<li class="splash_nav__item">
-								<a href="https://www.slanteddoor.com/las-vegas">SD LV</a>
-							</li>
-							<li class="splash_nav__item">
-								<a href="https://www.slanteddoor.com/">SD SF</a>
-							</li>
-							<li class="splash_nav__item">
-								<a href="https://www.slanteddoor-sanramon.com/">SD SR</a>
-							</li>
-							<li class="splash_nav__item">
-								<a href="https://www.hardwaterbar.com/">Hardwater</a>
-							</li>
-							<li class="splash_nav__item">
-								<a href="https://slanted-door.myshopify.com/pages/coming-soon"
-									>Larkspur TBD</a
-								>
-							</li>
-							<li class="splash_nav__item">
-								<a href="https://www.riceandbones.com/">Rice & Bones</a>
-							</li>
-						</ul>
-					</nav>
-				</li>
-				<li class="splash_nav__item">
-					<a href="https://slanted-door.myshopify.com/pages/food-delivery">
-						slanted door at home
-					</a>
-				</li>
-				<li class="splash_nav__item">
-					<a
-						href="https://slanted-door.myshopify.com/pages/wo-hing-general-store"
-						>wo hing general store</a
-					>
-				</li>
-			</ul>
-		</nav>
-		<nav id="splash-nav__3">
-			<ul>
-				<li class="splash_nav__item">
-					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
-						>about</a
-					>
-				</li>
-				<li class="splash_nav__item">
-					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
-						>careers</a
-					>
-				</li>
-				<li class="splash_nav__item">
-					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
-						>contact</a
-					>
-				</li>
-				<li class="splash_nav__item">
-					<a href="https://slanted-door.myshopify.com/pages/coming-soon"
-						>press</a
-					>
-				</li>
-				<li class="splash_nav__item">
-					<a href="https://slanted-door.myshopify.com/pages/coming-soon">FAQ</a>
-				</li>
-			</ul>
-		</nav>
+		<div class="nav-container">
+			<nav id="splash-nav__1">
+				<ul>
+					<li class="splash_nav__item" id="restaurant-menu-btn">
+						<p>restaurants <i class="fas fa-chevron-right"></i></p>
+						<nav id="splash-nav__2" class="restaurant-menu__hidden">
+							<ul>
+								<li class="splash_nav__item">
+									<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+										>SD NP</a
+									>
+								</li>
+								<li class="splash_nav__item">
+									<a href="https://www.slanteddoor.com/las-vegas">SD LV</a>
+								</li>
+								<li class="splash_nav__item">
+									<a href="https://www.slanteddoor.com/">SD SF</a>
+								</li>
+								<li class="splash_nav__item">
+									<a href="https://www.slanteddoor-sanramon.com/">SD SR</a>
+								</li>
+								<li class="splash_nav__item">
+									<a href="https://www.hardwaterbar.com/">Hardwater</a>
+								</li>
+								<li class="splash_nav__item">
+									<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+										>Larkspur TBD</a
+									>
+								</li>
+								<li class="splash_nav__item">
+									<a href="https://www.riceandbones.com/">Rice & Bones</a>
+								</li>
+							</ul>
+						</nav>
+					</li>
+					<li class="splash_nav__item">
+						<a href="https://slanted-door.myshopify.com/pages/food-delivery">
+							slanted door at home
+						</a>
+					</li>
+					<li class="splash_nav__item">
+						<a
+							href="https://slanted-door.myshopify.com/pages/wo-hing-general-store"
+							>wo hing general store</a
+						>
+					</li>
+				</ul>
+			</nav>
+			<nav id="splash-nav__3">
+				<ul>
+					<li class="splash_nav__item">
+						<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+							>about</a
+						>
+					</li>
+					<li class="splash_nav__item">
+						<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+							>careers</a
+						>
+					</li>
+					<li class="splash_nav__item">
+						<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+							>contact</a
+						>
+					</li>
+					<li class="splash_nav__item">
+						<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+							>press</a
+						>
+					</li>
+					<li class="splash_nav__item">
+						<a href="https://slanted-door.myshopify.com/pages/coming-soon"
+							>FAQ</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 	<div id="splash-right-div">
 		<img
