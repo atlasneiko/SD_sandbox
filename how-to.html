@@ -8,9 +8,7 @@
 	body {
 		margin: 0;
 	}
-	#shopify-section-header {
-		display: none;
-	}
+
 	div .section-header.text-center {
 		display: none;
 	}
@@ -25,6 +23,41 @@
 		left: 0;
 		width: 101vw;
 	}
+	.retail-nav_ul {
+		display: none;
+	}
+	header.site-header.logo--center {
+		height: 170px;
+	}
+	.site-header__logo-image {
+		display: none;
+	}
+	.v2-navbar img {
+		height: 150px;
+	}
+	.v2-navbar {
+		position: fixed;
+		top: 60px;
+		z-index: 90;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		width: 90vw;
+		left: 50%;
+		margin-left: -45vw;
+		/* background: white; */
+		/* border: 1px solid black; */
+		padding-bottom: 30px;
+	}
+	.v2-navbar__link {
+		font-size: 20px;
+		border-bottom-color: transparent !important;
+	}
+	.v2-navbar__link:hover {
+		border-bottom-color: black !important;
+	}
+
 	main#MainContent {
 		padding-top: 0 !important;
 	}
@@ -49,6 +82,8 @@
 		/* border: 1px solid pink; */
 		position: relative;
 		left: 3vw;
+		padding-top: 240px;
+		height: 1000px;
 	}
 	#how-to__right #how-to__left {
 		height: 100%;
@@ -60,6 +95,7 @@
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
+		width: 50%;
 	}
 	#how-to__right {
 		/* border: 1px solid yellowgreen; */
@@ -67,6 +103,8 @@
 		justify-content: center;
 		align-items: center;
 		overflow: hidden;
+		width: 50%;
+		height: 100%;
 	}
 	#how-to__right img {
 		width: auto;
@@ -109,6 +147,7 @@
 		#how-to__container {
 			flex-direction: column-reverse;
 			height: unset;
+			padding-top: 222px;
 		}
 		#how-to__left {
 			height: 50%;
@@ -136,7 +175,36 @@
 			height: 50vh;
 		}
 	}
+	#HOW-TO-link{
+		border-color: black !important;
+	}
 </style>
+<nav class="v2-navbar">
+	<!--! THIS NEED ZIPCODE VALIDATION -->
+	<a href="https://slanted-door.myshopify.com/pages/food-delivery" class="v2-navbar__link MENU-link" >MENU</a>
+	<a
+		id="HOW-TO-link"
+		href="https://slanted-door.myshopify.com/pages/how-it-works-1"
+		class="v2-navbar__link"
+		>HOW IT WORKS</a
+	>
+	<a class="v2-navbar__link" href="https://slanted-door.myshopify.com/pages/sd-home__v2__homepage">
+		<img
+			src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/sd_logo_1_2048x.png"
+		/>
+	</a>
+	<a
+		id="START-link"
+		href="https://slanted-door.myshopify.com/pages/copy-of-sd-home__v2__homepage"
+		class="v2-navbar__link"
+		>GET STARTED</a
+	>
+	<a
+		href="https://slanted-door.myshopify.com/account/login"
+		class="v2-navbar__link"
+		>SIGN IN</a
+	>
+</nav>
 <div id="how-to__container">
 	<div id="how-to__left">
 		<h1 class="how-to__title">How It Works</h1>
@@ -145,7 +213,7 @@
 			<p class="how-to__text">
 				Choose your favorite dishes by midnight Tuesday
 			</p>
-			<a href="https://slanted-door.myshopify.com/pages/food-delivery"
+			<a class="MENU-link"href="https://slanted-door.myshopify.com/pages/food-delivery"
 				>Explore the menu</a
 			>
 		</div>
@@ -172,14 +240,178 @@
 	</div>
 </div>
 <!-- <i class="fab fa-youtube"></i> -->
-<script>
+<!-- <script>
 	// console.log(localStorage);
+	// disable how-to__token
 	localStorage.clear();
+
 	const isRegular = localStorage.getItem("how-to__token");
 	console.log(isRegular);
 	if (isRegular === "true") {
 		location.href = "https://slanted-door.myshopify.com/pages/food-delivery";
 	} else {
 		localStorage.setItem("how-to__token", "true");
+	}
+</script> -->
+<script
+	src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+	data-auto-a11y="true"
+></script>
+<style>
+	.zip-code-checker__container {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		background: rgba(0,0,0,0.8);
+		display: none;
+		z-index: 10;
+	}
+	.zip-code__container-hidden{
+		top: -700px;
+	}
+	.zip-code__container-shown{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		top: 50%;
+		left: 50%;
+		/* bring your own prefixes */
+	  transform: translate(-50%, -50%)
+		
+	}
+	.zipe-code__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    height: 650px;
+    width: 450px;
+    /* border: 5px double white; */
+    top: 80px;
+    position: relative;
+    background: white;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+	}
+	#close-icon__container{
+		width: 100%;
+		padding-left: 1%;
+		margin-bottom: 60px;
+	}
+	#zip-code__close-icon{
+		/* color: red; */
+		cursor: pointer;
+	}
+	.zip-code__text-hidden {
+		display: none;
+	}
+	.zip-code__text-shown {
+		display: block;
+	}
+	p.zip-code-input__request-text {
+    font-size: 25px;
+    margin-bottom: 50px;
+	}
+	input#zip-code__input {
+    border: 1px solid black;
+    border-radius: 0;
+    margin-bottom: 50px;
+	}
+	#zip-code__input:focus{
+		border-radius: 0;
+	}
+	#zip-code__submit{
+		border: 3px solid black;
+    background: white;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-weight: 600;
+	}
+</style>
+<div class="zip-code-checker__container zip-code__container-hidden">
+	<form class="zipe-code__form">
+		<div id="close-icon__container">
+			<i class="fas fa-times" id="zip-code__close-icon"></i>
+		</div>
+		<p class="zip-code-input__request-text zip-code__text-shown">Tell us your zip code so we can check our availability to your area.</p>
+		<p class="zip-code__invalid-text zip-code__text-hidden">We're so sorry that we aren't yet able to deliver all of our offerings to your area yet. Our team is working hard to expand our delivery regions to your neighborhood, but don't worry! In the meantime, please enjoy a delivery from our shop on Goldbelly. We're redirecting you there now. </p>
+		<p class="zip-code__valid-text zip-code__text-hidden">Good news! We can deliver right to your doorstep. Let's eat!</p>
+		<input id="zip-code__input" name="zip-code__input" type="text" pattern="[0-9]*" placeholder="your zip code">
+		<button type:"submit" id="zip-code__submit">Submit</button>
+	</form>
+</div>
+<script>
+
+
+	const showText = (...eles) =>{
+		eles.forEach(ele =>{
+			ele.classList.remove("zip-code__text-hidden");
+			ele.classList.add("zip-code__text-shown");
+		})
+	}
+	const hideText = (...eles) =>{
+		eles.forEach(ele =>{
+			ele.classList.add("zip-code__text-hidden");
+			ele.classList.remove("zip-code__text-shown");
+		})
+	}
+	const isLocal = window.sessionStorage.getItem("isLocal");
+	if(isLocal !== 'true'){
+	const all_products = document.querySelectorAll(".MENU-link");
+	for (product_link of all_products) {
+		product_link.addEventListener("click", (event) => {
+			// bypass default behavior and capture the url 
+			event.preventDefault();
+			const url = event.srcElement.href;
+			// console.log(url);
+			//* this line redirects to the target url
+			// window.location.href = url;
+			
+			// check to see if zip code is in the service area
+			const zipCodeArr = [
+				 94102, 94103, 94104, 94105, 94107,
+				 94108, 94109, 94110, 94111, 94112,
+				 94114, 94115, 94116, 94117, 94118,
+				 94121, 94122, 94123, 94124, 94127,
+				 94129, 94131, 94132, 94133, 94134,
+				 94158
+			]
+			const zipCodeForm = document.querySelector(".zip-code-checker__container");
+			zipCodeForm.classList.toggle("zip-code__container-hidden")
+			zipCodeForm.classList.toggle("zip-code__container-shown")
+			zipCodeForm.addEventListener("submit", (event) =>{
+				event.preventDefault();
+				const zipCodeInput = parseInt(document.querySelector("#zip-code__input").value)
+				const requestText = document.querySelector(".zip-code-input__request-text");
+				const invalidText = document.querySelector(".zip-code__invalid-text");
+				const validText = document.querySelector(".zip-code__valid-text")
+				if(zipCodeArr.includes(zipCodeInput)){
+					hideText(requestText, invalidText);
+					showText(validText);
+					setTimeout(()=>{
+						window.location.href = url;
+					}, 3000);
+					window.sessionStorage.setItem("isLocal", true);
+				} else {
+					hideText(requestText, validText);
+					showText(invalidText)
+					setTimeout(() =>{
+						window.location.href = "https://www.goldbelly.com/the-slanted-door"
+					},3000);
+				}
+			})
+
+			
+		// toggle zip code checker by clicking on close icon
+			const closeIcon = document.querySelector("#zip-code__close-icon");
+			closeIcon.addEventListener("click", (event)=>{
+				zipCodeForm.classList.remove("zip-code__container-shown")
+			})
+			
+		});
+	}
+	
 	}
 </script>

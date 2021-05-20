@@ -1,0 +1,373 @@
+<style>
+	body {
+		margin: 0;
+	}
+	/* #shopify-section-header {
+		display: none;
+	} */
+	div .section-header.text-center {
+		display: none;
+	}
+	header.site-header.logo--center {
+		height: 170px;
+	}
+	.page-width {
+		padding-left: 0;
+		padding-right: 0;
+		margin: 0;
+		max-width: none;
+	}
+	.grid__item.medium-up--five-sixths.medium-up--push-one-twelfth {
+		padding: 0;
+		left: 0;
+		width: 101vw;
+	}
+	.retail-nav_ul {
+		display: none;
+	}
+	/* header.site-header.logo--center {
+		display: none;
+	} */
+	.site-header__logo-image {
+		display: none;
+	}
+	.v2-navbar img {
+		height: 150px;
+	}
+	.v2-navbar {
+		position: fixed;
+		top: 60px;
+		z-index: 90;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		width: 90vw;
+		left: 50%;
+		margin-left: -45vw;
+		/* background: white; */
+		padding-bottom: 20px;
+	}
+	.v2-navbar__link {
+		font-size: 20px;
+		border-bottom-color: transparent !important;
+	}
+	.v2-navbar__link:hover {
+		border-bottom-color: black !important;
+	}
+	/* main#MainContent {
+		padding-top: 0 !important;
+	} */
+	/* #Hero-1621357569af1d190a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	} */
+	#div-1621357569af1d190a {
+		padding-top: 67px;
+	}
+	.hero--medium {
+		height: 600px;
+	}
+	.three-image-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.img-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 30%;
+		padding: 30px 50px 30px 30px;
+		text-align: center;
+	}
+	.img-container img {
+		height: 200px;
+		width: auto;
+	}
+	.img-container p {
+		font-size: 18px;
+		padding-top: 20px;
+	}
+</style>
+<nav class="v2-navbar">
+	<!--! THIS NEED ZIPCODE VALIDATION -->
+	<a href="https://slanted-door.myshopify.com/pages/food-delivery" class="v2-navbar__link" id="MENU-link">MENU</a>
+	<a
+		href="https://slanted-door.myshopify.com/pages/how-it-works-1"
+		class="v2-navbar__link"
+		>HOW IT WORKS</a
+	>
+	<a class="v2-navbar__link" href="https://slanted-door.myshopify.com/pages/sd-home__v2__homepage">
+		<img
+			src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/sd_logo_1_2048x.png"
+		/>
+	</a>
+	<a
+		href="https://slanted-door.myshopify.com/pages/copy-of-sd-home__v2__homepage"
+		class="v2-navbar__link"
+		>GET STARTED</a
+	>
+	<a
+		href="https://slanted-door.myshopify.com/account/login"
+		class="v2-navbar__link"
+		>SIGN IN</a
+	>
+</nav>
+<script
+	src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+	data-auto-a11y="true"
+></script>
+<style>
+	.zip-code-checker__container {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		background: rgba(0,0,0,0.8);
+		display: none;
+		z-index: 10;
+	}
+	.zip-code__container-hidden{
+		top: -700px;
+	}
+	.zip-code__container-shown{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		top: 50%;
+		left: 50%;
+		/* bring your own prefixes */
+	  transform: translate(-50%, -50%)
+		
+	}
+	.zipe-code__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    height: 650px;
+    width: 450px;
+    /* border: 5px double white; */
+    top: 80px;
+    position: relative;
+    background: white;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+	}
+	#close-icon__container{
+		width: 100%;
+		padding-left: 1%;
+		margin-bottom: 60px;
+	}
+	#zip-code__close-icon{
+		/* color: red; */
+		cursor: pointer;
+	}
+	.zip-code__text-hidden {
+		display: none;
+	}
+	.zip-code__text-shown {
+		display: block;
+	}
+	p.zip-code-input__request-text {
+    font-size: 25px;
+    margin-bottom: 50px;
+	}
+	input#zip-code__input {
+    border: 1px solid black;
+    border-radius: 0;
+    margin-bottom: 50px;
+	}
+	#zip-code__input:focus{
+		border-radius: 0;
+	}
+	#zip-code__submit{
+		border: 3px solid black;
+    background: white;
+    border-radius: 0;
+    padding: 10px 20px;
+    font-weight: 600;
+	}
+</style>
+<div class="zip-code-checker__container zip-code__container-hidden">
+	<form class="zipe-code__form">
+		<div id="close-icon__container">
+			<i class="fas fa-times" id="zip-code__close-icon"></i>
+		</div>
+		<p class="zip-code-input__request-text zip-code__text-shown">Tell us your zip code so we can check our availability to your area.</p>
+		<p class="zip-code__invalid-text zip-code__text-hidden">We're so sorry that we aren't yet able to deliver all of our offerings to your area yet. Our team is working hard to expand our delivery regions to your neighborhood, but don't worry! In the meantime, please enjoy a delivery from our shop on Goldbelly. We're redirecting you there now. </p>
+		<p class="zip-code__valid-text zip-code__text-hidden">Good news! We can deliver right to your doorstep. Let's eat!</p>
+		<input id="zip-code__input" name="zip-code__input" type="text" pattern="[0-9]*" placeholder="your zip code">
+		<button type:"submit" id="zip-code__submit">Submit</button>
+	</form>
+</div>
+<script>
+
+
+	const showText = (...eles) =>{
+		eles.forEach(ele =>{
+			ele.classList.remove("zip-code__text-hidden");
+			ele.classList.add("zip-code__text-shown");
+		})
+	}
+	const hideText = (...eles) =>{
+		eles.forEach(ele =>{
+			ele.classList.add("zip-code__text-hidden");
+			ele.classList.remove("zip-code__text-shown");
+		})
+	}
+	const isLocal = window.sessionStorage.getItem("isLocal");
+	if(isLocal !== 'true'){
+	const menu__link = document.querySelector("#MENU-link");
+	// const all_products = document.querySelectorAll(".grid-view-item__link");
+		menu__link.addEventListener("click", (event) => {
+			// bypass default behavior and capture the url 
+			event.preventDefault();
+			const url = event.srcElement.href;
+			console.log(url);
+			//* this line redirects to the target url
+			// window.location.href = url;
+			
+			// check to see if zip code is in the service area
+			const zipCodeArr = [
+				 94102, 94103, 94104, 94105, 94107,
+				 94108, 94109, 94110, 94111, 94112,
+				 94114, 94115, 94116, 94117, 94118,
+				 94121, 94122, 94123, 94124, 94127,
+				 94129, 94131, 94132, 94133, 94134,
+				 94158
+			]
+			const zipCodeForm = document.querySelector(".zip-code-checker__container");
+			zipCodeForm.classList.toggle("zip-code__container-hidden")
+			zipCodeForm.classList.toggle("zip-code__container-shown")
+			zipCodeForm.addEventListener("submit", (event) =>{
+				event.preventDefault();
+				const zipCodeInput = parseInt(document.querySelector("#zip-code__input").value)
+				const requestText = document.querySelector(".zip-code-input__request-text");
+				const invalidText = document.querySelector(".zip-code__invalid-text");
+				const validText = document.querySelector(".zip-code__valid-text")
+				if(zipCodeArr.includes(zipCodeInput)){
+					window.sessionStorage.setItem("isLocal", true);
+					hideText(requestText, invalidText);
+					showText(validText);
+					setTimeout(()=>{
+						window.location.href = url;
+					}, 3000);
+				} else {
+					hideText(requestText, validText);
+					showText(invalidText)
+					setTimeout(() =>{
+						window.location.href = "https://www.goldbelly.com/the-slanted-door"
+					},3000);
+				}
+			})
+
+			
+		// toggle zip code checker by clicking on close icon
+			const closeIcon = document.querySelector("#zip-code__close-icon");
+			closeIcon.addEventListener("click", (event)=>{
+				zipCodeForm.classList.remove("zip-code__container-shown")
+			})
+			
+		});
+	
+	
+	}
+</script>
+<div
+	id="div-1621357569af1d190a"
+	data-section-id="1621357569af1d190a"
+	data-section-type="hero-section"
+>
+	<div
+		class="hero hero--medium hero-1621357569af1d190a box ratio-container js lazyloaded"
+		id="Hero-1621357569af1d190a"
+		data-layout="full_width"
+		data-bg="//cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_300x300.jpg?v=1621357601"
+		data-bgset="//cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_180x.jpg?v=1621357601 180w 95h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_360x.jpg?v=1621357601 360w 191h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_540x.jpg?v=1621357601 540w 286h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_720x.jpg?v=1621357601 720w 381h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_900x.jpg?v=1621357601 900w 477h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1080x.jpg?v=1621357601 1080w 572h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1296x.jpg?v=1621357601 1296w 687h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1512x.jpg?v=1621357601 1512w 801h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1728x.jpg?v=1621357601 1728w 916h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1950x.jpg?v=1621357601 1950w 1033h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2100x.jpg?v=1621357601 2100w 1113h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2260x.jpg?v=1621357601 2260w 1197h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2450x.jpg?v=1621357601 2450w 1298h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2700x.jpg?v=1621357601 2700w 1431h,
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_3000x.jpg?v=1621357601 3000w 1589h,
+    
+    
+    
+    //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2.jpg?v=1621357601 3337w 1768h"
+		data-parent-fit="cover"
+		style="
+			background-position: center center;
+			background-image: url('https://cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1512x.jpg?v=1621357601');
+		"
+	>
+		<div class="hero__inner">
+			<div class="page-width text-center"></div>
+		</div>
+		<picture style="display: none;"
+			><source
+				data-srcset="//cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_180x.jpg?v=1621357601 180w 95h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_360x.jpg?v=1621357601 360w 191h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_540x.jpg?v=1621357601 540w 286h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_720x.jpg?v=1621357601 720w 381h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_900x.jpg?v=1621357601 900w 477h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1080x.jpg?v=1621357601 1080w 572h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1296x.jpg?v=1621357601 1296w 687h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1512x.jpg?v=1621357601 1512w 801h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1728x.jpg?v=1621357601 1728w 916h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1950x.jpg?v=1621357601 1950w 1033h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2100x.jpg?v=1621357601 2100w 1113h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2260x.jpg?v=1621357601 2260w 1197h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2450x.jpg?v=1621357601 2450w 1298h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2700x.jpg?v=1621357601 2700w 1431h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_3000x.jpg?v=1621357601 3000w 1589h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2.jpg?v=1621357601 3337w 1768h"
+				sizes="609px"
+				srcset="//cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_180x.jpg?v=1621357601 180w 95h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_360x.jpg?v=1621357601 360w 191h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_540x.jpg?v=1621357601 540w 286h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_720x.jpg?v=1621357601 720w 381h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_900x.jpg?v=1621357601 900w 477h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1080x.jpg?v=1621357601 1080w 572h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1296x.jpg?v=1621357601 1296w 687h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1512x.jpg?v=1621357601 1512w 801h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1728x.jpg?v=1621357601 1728w 916h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_1950x.jpg?v=1621357601 1950w 1033h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2100x.jpg?v=1621357601 2100w 1113h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2260x.jpg?v=1621357601 2260w 1197h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2450x.jpg?v=1621357601 2450w 1298h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2700x.jpg?v=1621357601 2700w 1431h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_3000x.jpg?v=1621357601 3000w 1589h, //cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2.jpg?v=1621357601 3337w 1768h" />
+			<img
+				alt=""
+				class="lazyautosizes lazyloaded ls-is-cached"
+				data-sizes="auto"
+				data-parent-fit="cover"
+				sizes="609px"
+		/></picture>
+	</div>
+	<noscript>
+		<div
+			class="hero hero--medium"
+			style="
+				background-image: url('//cdn.shopify.com/s/files/1/0557/4449/5788/files/PXL_20210515_003034381-01_2_2048x.jpg?v=1621357601');
+				background-position: center center;
+			"
+		></div>
+	</noscript>
+</div>
+<div class="three-image-container">
+	<div class="img-container">
+		<img
+			src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/istocklaptop_1_720x.jpg"
+			alt="relaxed guest img"
+		/>
+		<p>
+			Choose your favorite authentic Slanted Door Vietnamese classic meals by
+			Tuesday night for your weekly Thursday doorstop delivery.
+		</p>
+	</div>
+	<div class="img-container">
+		<img
+			src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/cp.jpg"
+			alt="Charles Phan Cooking img"
+		/>
+		<p>
+			Choose your favorite authentic Slanted Door Vietnamese classic meals by
+			Tuesday night for your weekly Thursday doorstop delivery.
+		</p>
+	</div>
+	<div class="img-container">
+		<img
+			src="https://cdn.shopify.com/s/files/1/0557/4449/5788/files/meal_kit.jpg"
+			alt="meal kit img"
+		/>
+		<p>
+			Choose your favorite authentic Slanted Door Vietnamese classic meals by
+			Tuesday night for your weekly Thursday doorstop delivery.
+		</p>
+	</div>
+</div>
+
