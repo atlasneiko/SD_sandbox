@@ -123,10 +123,13 @@
 		const isLocal = window.sessionStorage.getItem("isLocal");
 		if(isLocal !== 'true'){
 			
-			
+			const howToBtn = document.querySelector("#block-583b03c597064d5f27ef a")
 				// show zip-code__container
-				zipCodeForm.classList.toggle("zip-code__container-hidden")
-				zipCodeForm.classList.toggle("zip-code__container-shown")
+        howToBtn.addEventListener('click',()=>{
+          console.log("click!")
+          zipCodeForm.classList.toggle("zip-code__container-hidden")
+          zipCodeForm.classList.toggle("zip-code__container-shown")
+        })
 
 				zipCodeForm.addEventListener("submit", (event) =>{
 					event.preventDefault();
