@@ -1,3 +1,7 @@
+<!--* Potentially legacy component for the dropdown menu on Shipify website -->
+<!--TODO need responsive improvement is recommended before deployment -->
+<!--! when change it, go to header.liquid under edit code line #85 -->
+
 <link
 	rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -115,7 +119,9 @@
 	>
 </nav>
 <script>
+	// select the burger button
 	const btn = document.querySelector("#menu-burger-btn");
+	// simple toggle feature with click event listener
 	btn.addEventListener("click", (event) => {
 		console.log("clicked");
 		const menu = document.querySelector("#dropdown-nav");

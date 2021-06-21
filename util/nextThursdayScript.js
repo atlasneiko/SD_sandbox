@@ -1,10 +1,5 @@
-// function dates() {
-//   var dayOfWeek = 4; //friday
-//   var date = new Date();
-//   date.setDate(date.getDate() + ((dayOfWeek + 7 - date.getDay()) % 7));
-//   console.log(date);
-// }
-// dates()
+//* prototype for the SquareSpace date update script
+//* kept it only as a source of reference.
 
   const targetDayOfWeek = 4; //Thursday
   const today = new Date();
