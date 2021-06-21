@@ -1,0 +1,215 @@
+<!--* This code is basically the same as SS_zipcode.js -->
+<!--* except that it connects to each menu item instead of when render the page -->
+<!--* It doesn't show the validation right away, but wait until the clinet click the product link  -->
+<!--* We currently run SS_zipcode.js on the same page with this script, that's why some of the setup here are commneted out. -->
+	<!-- <script
+		src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+		data-auto-a11y="true"
+	></script>
+	<style>
+		/* This section dictates how the component looks like */
+		.zip-code-checker__container {
+			position: fixed;
+			height: 100vh;
+			width: 100vw;
+			background: rgba(0,0,0,0.8);
+			display: none;
+			z-index: 10;
+		}
+		.zip-code__container-hidden{
+			top: -700px;
+		}
+		.zip-code__container-shown{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			top: 50%;
+			left: 50%;
+			/* bring your own prefixes */
+			transform: translate(-50%, -50%)
+			
+		}
+		.zipe-code__form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			/* justify-content: space-evenly; */
+			height: 650px;
+			width: 450px;
+			/* border: 5px double white; */
+			top: 80px;
+			position: relative;
+			background: white;
+			padding-top: 30px;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		#close-icon__container{
+			width: 100%;
+			padding-left: 1%;
+			margin-bottom: 60px;
+		}
+		#zip-code__close-icon{
+			/* color: red; */
+			cursor: pointer;
+			font-size: 30px;
+		}
+		.zip-code__text-hidden {
+			display: none;
+		}
+		.zip-code__text-shown {
+			display: block;
+		}
+		p.zip-code-input__request-text {
+			font-size: 25px;
+			margin-bottom: 50px;
+		}
+		input#zip-code__input {
+			border: 1px solid black;
+			border-radius: 0;
+			margin-bottom: 50px;
+			padding: 15px;
+		}
+		#zip-code__input:focus{
+			border-radius: 0;
+		}
+		#zip-code__submit{
+			border: 3px solid black;
+			background: white;
+			border-radius: 0;
+			padding: 10px 20px;
+			font-weight: 600;
+		}
+		.zip-code-input__request-text,.zip-code__invalid-text, .zip-code__valid-text, .zip-zip-code__count-down{
+			animation: all 1s linear;
+			padding-bottom: 15px;
+		}
+		
+	</style>
+	<div class="zip-code-checker__container zip-code__container-hidden">
+		<form class="zipe-code__form">
+			<div id="close-icon__container">
+				<i class="fas fa-times" id="zip-code__close-icon"></i>
+			</div>
+			<h1 class="zip-code__count-down"></h1>
+			<p class="zip-code-input__request-text zip-code__text-shown">Tell us your zip code so we can check our availability to your area.</p>
+			<p class="zip-code__invalid-text zip-code__text-hidden">We're so sorry that we aren't yet able to deliver all of our offerings to your area yet.<br/> Our team is working hard to expand our delivery regions to your neighborhood, but don't worry! In the meantime, please enjoy a delivery from our shop on Goldbelly. We're redirecting you there now. </p>
+			<p class="zip-code__valid-text zip-code__text-hidden">Good news! We can deliver right to your doorstep. Let's eat!</p>
+			<input id="zip-code__input" name="zip-code__input" type="text" pattern="[0-9]*" placeholder="your zip code">
+			<button type:"submit" id="zip-code__submit">Submit</button>
+		</form>
+	</div> -->
+
+<script>
+  	// helper functions to show or hide text
+		// const showText = (...eles) =>{
+		// 	eles.forEach(ele =>{
+		// 		ele.classList.remove("zip-code__text-hidden");
+		// 		ele.classList.add("zip-code__text-shown");
+		// 	})
+		// }
+		// const hideText = (...eles) =>{
+		// 	eles.forEach(ele =>{
+		// 		ele.classList.add("zip-code__text-hidden");
+		// 		ele.classList.remove("zip-code__text-shown");
+		// 	})
+		// }
+		// // edit this array if we have a different service area
+		// const zipCodeArr = [
+		// 	94102, 94103, 94104, 94105, 94107,
+		// 	94108, 94109, 94110, 94111, 94112,
+		// 	94114, 94115, 94116, 94117, 94118,
+		// 	94121, 94122, 94123, 94124, 94127,
+		// 	94129, 94131, 94132, 94133, 94134,
+		// 	94158
+		// ]
+
+		// const zipCodeForm = document.querySelector(".zip-code-checker__container");
+		// // check to see if we've validate the zip code of this user before
+		// const isLocal = window.sessionStorage.getItem("isLocal");
+
+	if (isLocal !== "true") {
+		const all_products = document.querySelectorAll(".MENU-link");
+		for (product_link of all_products) {
+			product_link.addEventListener("click", (event) => {
+				// bypass default behavior and capture the url
+				event.preventDefault();
+				const url = event.srcElement.href;
+				//* this line redirects to the target url
+				// window.location.href = url;
+
+				// check to see if zip code is in the service area
+				const zipCodeArr = [
+					94102,
+					94103,
+					94104,
+					94105,
+					94107,
+					94108,
+					94109,
+					94110,
+					94111,
+					94112,
+					94114,
+					94115,
+					94116,
+					94117,
+					94118,
+					94121,
+					94122,
+					94123,
+					94124,
+					94127,
+					94129,
+					94131,
+					94132,
+					94133,
+					94134,
+					94158,
+				];
+				const zipCodeForm = document.querySelector(
+					".zip-code-checker__container"
+				);
+				zipCodeForm.classList.toggle("zip-code__container-hidden");
+				zipCodeForm.classList.toggle("zip-code__container-shown");
+				zipCodeForm.addEventListener("submit", (event) => {
+					event.preventDefault();
+					const zipCodeInput = parseInt(
+						document.querySelector("#zip-code__input").value
+					);
+					const requestText = document.querySelector(
+						".zip-code-input__request-text"
+					);
+					const invalidText = document.querySelector(".zip-code__invalid-text");
+					const validText = document.querySelector(".zip-code__valid-text");
+					let currentCountDown = 3;
+					countDownText.innerHTML = currentCountDown;
+
+					const countInterval = setInterval(() => {
+						currentCountDown--;
+						countDownText.innerHTML = currentCountDown;
+					}, 1000);
+
+					if (zipCodeArr.includes(zipCodeInput)) {
+						hideText(requestText, invalidText);
+						showText(validText);
+						setTimeout(() => {
+							window.location.href = url;
+						}, 3000);
+						window.sessionStorage.setItem("isLocal", true);
+					} else {
+						hideText(requestText, validText);
+						showText(invalidText);
+						setTimeout(() => {
+							zipCodeForm.classList.toggle("zip-code__container-hidden");
+							zipCodeForm.classList.toggle("zip-code__container-shown");
+						}, 3000);
+					}
+				});
+
+				// toggle zip code checker by clicking on close icon
+			});
+		}
+	}
+</script>

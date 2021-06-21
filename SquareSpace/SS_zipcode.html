@@ -1,3 +1,5 @@
+<!--* basically the same as SS_how_to_zipcode.js. Just different querySelector -->
+
 	<script
 		src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
 		data-auto-a11y="true"
@@ -123,13 +125,10 @@
 		const isLocal = window.sessionStorage.getItem("isLocal");
 		if(isLocal !== 'true'){
 			
-			const howToBtn = document.querySelector("#block-583b03c597064d5f27ef a")
+			
 				// show zip-code__container
-        howToBtn.addEventListener('click',()=>{
-          console.log("click!")
-          zipCodeForm.classList.toggle("zip-code__container-hidden")
-          zipCodeForm.classList.toggle("zip-code__container-shown")
-        })
+				zipCodeForm.classList.toggle("zip-code__container-hidden")
+				zipCodeForm.classList.toggle("zip-code__container-shown")
 
 				zipCodeForm.addEventListener("submit", (event) =>{
 					event.preventDefault();

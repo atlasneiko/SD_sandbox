@@ -1,8 +1,10 @@
+<!-- used for icons -->
 	<script
 		src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
 		data-auto-a11y="true"
 	></script>
 	<style>
+		/* This section dictates how the component looks like */
 		.zip-code-checker__container {
 			position: fixed;
 			height: 100vh;
@@ -97,7 +99,7 @@
 	</div>
 	<script>
 
-
+		// helper functions to show or hide text
 		const showText = (...eles) =>{
 			eles.forEach(ele =>{
 				ele.classList.remove("zip-code__text-hidden");
@@ -110,6 +112,7 @@
 				ele.classList.remove("zip-code__text-shown");
 			})
 		}
+		// edit this array if we have a different service area
 		const zipCodeArr = [
 			94102, 94103, 94104, 94105, 94107,
 			94108, 94109, 94110, 94111, 94112,
@@ -118,16 +121,20 @@
 			94129, 94131, 94132, 94133, 94134,
 			94158
 		]
+
 		const zipCodeForm = document.querySelector(".zip-code-checker__container");
-		
+		// check to see if we've validate the zip code of this user before
 		const isLocal = window.sessionStorage.getItem("isLocal");
 		if(isLocal !== 'true'){
-			
-			
-				// show zip-code__container
-				zipCodeForm.classList.toggle("zip-code__container-hidden")
-				zipCodeForm.classList.toggle("zip-code__container-shown")
+			//If yes, show zip-code__container
+			const howToBtn = document.querySelector("#block-583b03c597064d5f27ef a")
+        howToBtn.addEventListener('click',()=>{
+          console.log("click!")
+          zipCodeForm.classList.toggle("zip-code__container-hidden")
+          zipCodeForm.classList.toggle("zip-code__container-shown")
+        })
 
+				// once submit the zipcode
 				zipCodeForm.addEventListener("submit", (event) =>{
 					event.preventDefault();
 					const zipCodeInput = parseInt(document.querySelector("#zip-code__input").value)
@@ -137,23 +144,30 @@
 					const countDownText = document.querySelector(".zip-code__count-down");
 					let currentCountDown = 3;
 					countDownText.innerHTML = currentCountDown;
-
+					// change the count down number here
 					const countInterval = setInterval(()=>{
 						currentCountDown--;
 						countDownText.innerHTML = currentCountDown;
-					},1000)
+					},1000);
+					// If guest is in the service area
 					if(zipCodeArr.includes(zipCodeInput)){
+						// change the text rendered on the component
 						hideText(requestText, invalidText);
 						showText(validText);
+						// gives 3 seconds before unmount the zipcode validation component
 						setTimeout(()=>{
 							zipCodeForm.classList.toggle("zip-code__container-hidden");
 							zipCodeForm.classList.toggle("zip-code__container-shown");
+							// remove the interval for optamization
 							clearInterval(countInterval);
 						}, 3000);
+						// add isLocal token in sessionStorage
 						window.sessionStorage.setItem("isLocal", true);
 					} else {
+						// if it's not in the service area
 						hideText(requestText, validText);
 						showText(invalidText)
+						// 3 seconds before close the zipcode validation component
 						setTimeout(() =>{
 							zipCodeForm.classList.toggle("zip-code__container-hidden");
 							zipCodeForm.classList.toggle("zip-code__container-shown");
